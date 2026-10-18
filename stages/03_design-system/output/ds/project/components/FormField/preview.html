@@ -1,0 +1,9 @@
+<!-- @dsCard group="Forms" height=400 subtitle="Label, input, hint, error" -->
+<div class="th-root" style="padding:24px;background:var(--bg);min-height:100%;box-sizing:border-box">
+<form style="display:grid;gap:24px" onsubmit="event.preventDefault()">
+  <div class="th-field"><label for="biz">Business name</label><input class="th-input" id="biz" name="biz" autocomplete="organization" value="Lakeshore Heating &amp; Cooling"></div>
+  <div class="th-field th-field--error"><label for="phone">Phone</label><span class="th-field__hint" id="phone-hint">We'll call you back at this number.</span>
+    <input class="th-input" id="phone" name="phone" type="tel" autocomplete="tel" value="585-555-01" aria-invalid="true" aria-describedby="phone-hint phone-err">
+    <span class="th-field__error" id="phone-err"><svg class="th-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>Enter a 10-digit phone number, like 585-555-0100.</span></div>
+  <div class="th-field"><label for="leak">What eats most of your week?</label><textarea class="th-input" id="leak" name="leak">Phones during service calls, and writing up quotes at night.</textarea></div>
+</form></div>

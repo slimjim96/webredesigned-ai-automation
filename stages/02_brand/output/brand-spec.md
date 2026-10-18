@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 updated: 2026-10-17
 ---
 
@@ -71,7 +71,7 @@ A straight-talking advisor. Plain words, short sentences, outcomes before tools 
 | "We'll train your team to run it." | "Seamless change management enablement." |
 | Say "hours" and "calls" and "quotes" | Say "agents", "LLMs", "MCP" unless the reader already does |
 
-## Before approval (person checks; record results here)
+## Owner checks (approved 2026-10-17 with these open; each must be done before `07_launch`)
 - [x] technehora.ai registered
 - TODO: technehora.com registered and redirecting
 - TODO: tagline confirmed

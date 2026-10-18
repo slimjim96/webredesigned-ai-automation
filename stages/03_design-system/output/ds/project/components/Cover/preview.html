@@ -1,0 +1,32 @@
+<!-- @dsCard height=336 -->
+<div class="cover">
+<svg class="art" viewBox="0 0 960 336" aria-hidden="true">
+  <!-- blocks: primary 96x192 + tint 96x144 (space-9 multiples) beside an ink slab 384x336, ember arc 16 wide (space-4)
+       arrangement: one tall slab bleeding top, right and bottom, with two stacked satellites on its left edge
+       pattern: literal motif (the dial) because the brand's one idea is a clock wound back: 12 ticks, a tint wedge, a counter-clockwise ember arc
+       steps: space-9 96, space-4 16, space-2 8; ticks rx radius-sm; no other radii (the system is near-square) -->
+  <rect class="primary" x="480" y="0" width="96" height="192"/>
+  <rect class="tint" x="480" y="192" width="96" height="144"/>
+  <rect class="slab" x="576" y="0" width="384" height="336"/>
+  <path class="tint" d="M768 168L677.9 116.0A104 104 0 0 1 768.0 64.0Z"/>
+  <rect class="face tick" x="764" y="28" width="8" height="32" transform="rotate(0 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="20" transform="rotate(30 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="20" transform="rotate(60 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="32" transform="rotate(90 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="20" transform="rotate(120 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="20" transform="rotate(150 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="32" transform="rotate(180 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="20" transform="rotate(210 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="20" transform="rotate(240 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="32" transform="rotate(270 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="20" transform="rotate(300 768 168)"/><rect class="face tick" x="764" y="28" width="8" height="20" transform="rotate(330 768 168)"/>
+  <path class="arc" d="M899.1 76.2A160 160 0 0 0 608.0 168.0"/>
+  <path class="accent" d="M590.0 168.0L610.0 193.0L626.0 168.0Z"/>
+  <circle class="primary" cx="768" cy="168" r="12"/>
+</svg>
+<div class="words"><div class="name">Techne<br>Hora</div><div class="tag">The craft of getting your hours back.</div></div>
+</div>
+<style>
+  .cover { position: relative; width: 960px; height: 336px; background: var(--bg); overflow: hidden; }
+  .art { position: absolute; inset: 0; width: 960px; height: 336px; }
+  .primary { fill: var(--primary); }
+  .tint { fill: var(--tint); }
+  .slab { fill: var(--ink); }
+  .face { fill: var(--bg); }
+  .tick { rx: var(--radius-sm); }
+  .accent { fill: var(--accent); }
+  .arc { fill: none; stroke: var(--accent); stroke-width: 16; }
+  .words { position: absolute; left: 48px; bottom: 40px; max-width: 400px; }
+  .name { font-family: var(--font-serif); font-weight: 600; font-size: 112px; line-height: 0.95; letter-spacing: -0.015em; color: var(--ink); }
+  .tag { margin-top: 16px; font-family: var(--font-sans); font-size: 14px; color: var(--ink-muted); }
+</style>

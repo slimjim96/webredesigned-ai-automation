@@ -1,0 +1,14 @@
+{"v":3,"layout":"files","createdOnFiles":{"v":1,"at":"2026-10-18T03:00:02Z"},"title":"Techne Hora","namespace":"TechneHora","libraries":[],"sections":{},"groups":["Logos"],
+"assetGroups":{"Logos":{"name":"Logos","tile":"m","order":["technehora-mark.svg","technehora-mark-flat.svg","technehora-mark-mono-navy.svg","technehora-mark-mono-white.svg","favicon.svg","technehora-lockup-horizontal-light.svg","technehora-lockup-horizontal-dark.svg","technehora-lockup-stacked-light.svg","technehora-lockup-compact-light.svg"],
+"files":{
+"technehora-mark.svg":{"name":"technehora-mark.svg","blob":"d7435b73818feb8d66db000cb5b55484","size":3939,"type":"image/svg+xml"},
+"technehora-mark-flat.svg":{"name":"technehora-mark-flat.svg","blob":"0a919710e437fe739093e796bbbcf403","size":2990,"type":"image/svg+xml"},
+"technehora-mark-mono-navy.svg":{"name":"technehora-mark-mono-navy.svg","blob":"31bc86ad9bcacfad6f4f42684a727224","size":2944,"type":"image/svg+xml"},
+"technehora-mark-mono-white.svg":{"name":"technehora-mark-mono-white.svg","blob":"c9a3650761ff40b82d9d025871359eeb","size":2944,"type":"image/svg+xml"},
+"favicon.svg":{"name":"favicon.svg","blob":"122b37f48a80dbb2f8d151b64ccf32c7","size":2007,"type":"image/svg+xml"},
+"technehora-lockup-horizontal-light.svg":{"name":"technehora-lockup-horizontal-light.svg","blob":"aaff4bcb4a5062f901a6d2cf20baea73","size":30911,"type":"image/svg+xml"},
+"technehora-lockup-horizontal-dark.svg":{"name":"technehora-lockup-horizontal-dark.svg","blob":"5f0a68f9ad2a65953287d74d2c217fdb","size":30911,"type":"image/svg+xml"},
+"technehora-lockup-stacked-light.svg":{"name":"technehora-lockup-stacked-light.svg","blob":"b7895a6343a45533d3d7978b65c9c68a","size":30943,"type":"image/svg+xml"},
+"technehora-lockup-compact-light.svg":{"name":"technehora-lockup-compact-light.svg","blob":"a7066402111c9206c849ee8c08403b77","size":31024,"type":"image/svg+xml"}}}},
+"blobs":{},"docs":{"readme":"project/README.md","sections":[]},
+"lastChange":{"by":"Claude","at":"2026-10-18T03:00:02Z","via":"Claude Code","note":"First system: tokens, 16 components, cover, logos"}}
