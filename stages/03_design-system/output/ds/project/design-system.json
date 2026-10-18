@@ -1,14 +1,127 @@
-{"v":3,"layout":"files","createdOnFiles":{"v":1,"at":"2026-10-18T03:00:02Z"},"title":"Techne Hora","namespace":"TechneHora","libraries":[],"sections":{},"groups":["Logos"],
-"assetGroups":{"Logos":{"name":"Logos","tile":"m","order":["technehora-mark.svg","technehora-mark-flat.svg","technehora-mark-mono-navy.svg","technehora-mark-mono-white.svg","favicon.svg","technehora-lockup-horizontal-light.svg","technehora-lockup-horizontal-dark.svg","technehora-lockup-stacked-light.svg","technehora-lockup-compact-light.svg"],
-"files":{
-"technehora-mark.svg":{"name":"technehora-mark.svg","blob":"d7435b73818feb8d66db000cb5b55484","size":3939,"type":"image/svg+xml"},
-"technehora-mark-flat.svg":{"name":"technehora-mark-flat.svg","blob":"0a919710e437fe739093e796bbbcf403","size":2990,"type":"image/svg+xml"},
-"technehora-mark-mono-navy.svg":{"name":"technehora-mark-mono-navy.svg","blob":"31bc86ad9bcacfad6f4f42684a727224","size":2944,"type":"image/svg+xml"},
-"technehora-mark-mono-white.svg":{"name":"technehora-mark-mono-white.svg","blob":"c9a3650761ff40b82d9d025871359eeb","size":2944,"type":"image/svg+xml"},
-"favicon.svg":{"name":"favicon.svg","blob":"122b37f48a80dbb2f8d151b64ccf32c7","size":2007,"type":"image/svg+xml"},
-"technehora-lockup-horizontal-light.svg":{"name":"technehora-lockup-horizontal-light.svg","blob":"aaff4bcb4a5062f901a6d2cf20baea73","size":30911,"type":"image/svg+xml"},
-"technehora-lockup-horizontal-dark.svg":{"name":"technehora-lockup-horizontal-dark.svg","blob":"5f0a68f9ad2a65953287d74d2c217fdb","size":30911,"type":"image/svg+xml"},
-"technehora-lockup-stacked-light.svg":{"name":"technehora-lockup-stacked-light.svg","blob":"b7895a6343a45533d3d7978b65c9c68a","size":30943,"type":"image/svg+xml"},
-"technehora-lockup-compact-light.svg":{"name":"technehora-lockup-compact-light.svg","blob":"a7066402111c9206c849ee8c08403b77","size":31024,"type":"image/svg+xml"}}}},
-"blobs":{},"docs":{"readme":"project/README.md","sections":[]},
-"lastChange":{"by":"Claude","at":"2026-10-18T03:00:02Z","via":"Claude Code","note":"First system: tokens, 16 components, cover, logos"}}
+{
+  "v": 3,
+  "assetGroups": {
+    "Logos": {
+      "files": {
+        "technehora-mark.svg": {
+          "name": "technehora-mark.svg",
+          "blob": "4f68b074aa3daf55c6958b8297c2423e",
+          "size": 1377,
+          "type": "image/svg+xml"
+        },
+        "technehora-mark-flat.svg": {
+          "name": "technehora-mark-flat.svg",
+          "blob": "c1970e5f99872cdd5e21aa1cb8f2ca7d",
+          "size": 998,
+          "type": "image/svg+xml"
+        },
+        "technehora-mark-mono-navy.svg": {
+          "name": "technehora-mark-mono-navy.svg",
+          "blob": "25ff8b4e57eb3eee1ad707fc3702539d",
+          "size": 966,
+          "type": "image/svg+xml"
+        },
+        "technehora-mark-mono-white.svg": {
+          "name": "technehora-mark-mono-white.svg",
+          "blob": "269f77b7cc97824ffea0428fd93089ff",
+          "size": 966,
+          "type": "image/svg+xml"
+        },
+        "favicon.svg": {
+          "name": "favicon.svg",
+          "blob": "54017ba558aad8bdf7b14724acc18f30",
+          "size": 998,
+          "type": "image/svg+xml"
+        },
+        "technehora-lockup-horizontal-light.svg": {
+          "name": "technehora-lockup-horizontal-light.svg",
+          "blob": "3d49d3eeb9f62caae3d52c87ed0613fd",
+          "size": 12065,
+          "type": "image/svg+xml"
+        },
+        "technehora-lockup-horizontal-dark.svg": {
+          "name": "technehora-lockup-horizontal-dark.svg",
+          "blob": "b7f2e60fb350e9de7bf446319f14f036",
+          "size": 12065,
+          "type": "image/svg+xml"
+        },
+        "technehora-lockup-stacked-light.svg": {
+          "name": "technehora-lockup-stacked-light.svg",
+          "blob": "ee9e56a6ecd9129ee5792745aec52eec",
+          "size": 11364,
+          "type": "image/svg+xml"
+        },
+        "technehora-lockup-stacked-dark.svg": {
+          "name": "technehora-lockup-stacked-dark.svg",
+          "blob": "2ee50716b3f664c4a70b954c000a8e3c",
+          "size": 11364,
+          "type": "image/svg+xml"
+        },
+        "technehora-wordmark-light.svg": {
+          "name": "technehora-wordmark-light.svg",
+          "blob": "dd8548bdecfba8e2b4ef574ef4eb4eb7",
+          "size": 9914,
+          "type": "image/svg+xml"
+        },
+        "technehora-wordmark-dark.svg": {
+          "name": "technehora-wordmark-dark.svg",
+          "blob": "d0f982b70671855c8b8e4ed86b99034d",
+          "size": 9914,
+          "type": "image/svg+xml"
+        },
+        "technehora-rewind.svg": {
+          "name": "technehora-rewind.svg",
+          "blob": "ea05d7a2b60ddfb0e21298d3806e16d9",
+          "size": 2583,
+          "type": "image/svg+xml"
+        },
+        "technehora-rewind-spinner.svg": {
+          "name": "technehora-rewind-spinner.svg",
+          "blob": "5eb886f7655dde2f7b587faafdda385c",
+          "size": 2200,
+          "type": "image/svg+xml"
+        }
+      },
+      "name": "Logos",
+      "order": [
+        "technehora-mark.svg",
+        "technehora-mark-flat.svg",
+        "technehora-mark-mono-navy.svg",
+        "technehora-mark-mono-white.svg",
+        "favicon.svg",
+        "technehora-lockup-horizontal-light.svg",
+        "technehora-lockup-horizontal-dark.svg",
+        "technehora-lockup-stacked-light.svg",
+        "technehora-lockup-stacked-dark.svg",
+        "technehora-wordmark-light.svg",
+        "technehora-wordmark-dark.svg",
+        "technehora-rewind.svg",
+        "technehora-rewind-spinner.svg"
+      ],
+      "tile": "m"
+    }
+  },
+  "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-10-18T03:00:02Z",
+    "v": 1
+  },
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "groups": [
+    "Logos"
+  ],
+  "lastChange": {
+    "by": "Claude",
+    "at": "2026-10-18T04:37:02Z",
+    "via": "Claude Code",
+    "note": "New logo (C3 dial label): Logos group, header, footer, hero and cover"
+  },
+  "layout": "files",
+  "libraries": [],
+  "namespace": "TechneHora",
+  "sections": {},
+  "title": "Techne Hora"
+}

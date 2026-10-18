@@ -2,7 +2,7 @@ The Techne Hora logo set from `stages/02_brand/output/logo/`: the C3 "dial label
 
 - `technehora-lockup-horizontal-light.svg` / `-dark.svg`: mark plus name. Light for `bg`, dark for `inverse`. At least 48px tall so H·O·R·A reads.
 - `technehora-lockup-stacked-light.svg` / `-dark.svg`: mark over name. Shirts, signs, title slides.
-- `technehora-wordmark-light.svg` / `-dark.svg`: name only.
+- `technehora-wordmark-light.svg` / `-dark.svg`: name only, where the mark is already nearby.
 - `technehora-mark.svg`: the mark, with one soft shadow inside the face. Avatars, app icons, the hero. Works on `bg` and `inverse`.
 - `technehora-mark-flat.svg`: no shadow. Print and signage.
 - `technehora-mark-mono-navy.svg`: one ink, navy `#1B2A4A`. Embroidery, stamps, photocopies.

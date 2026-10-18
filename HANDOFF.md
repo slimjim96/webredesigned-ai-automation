@@ -21,7 +21,7 @@ The owner picked **C3, "the dial label"**: a navy-rimmed clock at 10:00 with the
 - `brand-spec.md` Logo section and the design system's Logos README / header height (now 48px) are updated
 - Rounds explored, for reference: `logo/_explorations/rewind/` (3D puzzle marks, rejected as too complex) and `logo/_explorations/plex-refined/` (C1–C3)
 - Brand sheet redone and built by `02_brand/output/_build_sheet.py` (inlines the logo SVGs): https://claude.ai/artifact/2TeB3biugnrhD6XmtHaGP5
-- Stale, not yet redone: the design-system preview artifact and `SiteHeader/preview.html`. `logo-design-brief.md` (status: draft) is now moot
+- Design-system preview updated (Logos group, header, footer, hero, cover). The old Fraunces logo uploads are still in its asset store, unlisted. `logo-design-brief.md` (status: draft) is now moot
 
 ## Git
 Everything is committed and pushed to main.

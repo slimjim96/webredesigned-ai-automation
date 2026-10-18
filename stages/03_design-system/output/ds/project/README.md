@@ -50,12 +50,12 @@ IBM Plex in three cuts. It reads as engineered but warm, matching an owner who b
 - Small radii: `radius-sm` (4px) for inputs and tags, `radius-md` (6px) for buttons and callouts, `radius-lg` (10px) for cards. `radius-pill` only for round marks.
 - `border` draws decorative edges; `border-strong` draws edges that mean something (inputs, the secondary button), at 3:1.
 - Two shadows only: `shadow-1` for resting cards, `shadow-2` for the price card and an open menu.
-- No gradients in UI. The full-color clock mark keeps its own subtle shading.
+- No gradients in UI. The mark keeps its one soft touch: a faint shadow inside the top of the clock face.
 
 ## Motion
 
 - `motion-fast` (150ms) for hover and color changes, `motion-base` (250ms) for the FAQ chevron and the menu, both on `ease-out`.
-- Nothing moves on its own. With `prefers-reduced-motion`, both durations drop to 0.
+- Nothing moves on its own, except the rewind spinner while something loads. With `prefers-reduced-motion`, both durations drop to 0 and the spinner stands still.
 
 ## States and accessibility
 
@@ -75,9 +75,10 @@ IBM Plex in three cuts. It reads as engineered but warm, matching an owner who b
 
 ## Logo
 
-- The mark is the clock wound back: hands at 10 and 12, the last two hours tinted, a counter-clockwise ember arrow. Files are in the **Logos** asset group.
-- In the header use the mark at 36px plus "Techne Hora" in Plex Serif 600, until the redesigned lockup arrives (see `stages/02_brand/output/logo-design-brief.md`). The current lockup files still use the older Fraunces lettering.
-- Clear space: the clock face's radius on every side. Minimum 24px; below that use `favicon.svg`.
+- The logo is the **dial label**: a navy-rimmed clock at ten o'clock with the last two hours tinted, then "Techne" in Plex Serif 600 with H·O·R·A under it in Plex Mono, graphite, spaced like hour marks. Files are in the **Logos** asset group; the source is `stages/02_brand/output/logo/`.
+- In the header use `technehora-lockup-horizontal-light.svg` (`-dark` on `inverse` and in dark mode) at 48px tall. Below 48px H·O·R·A stops reading: use the mark alone, and below 24px `favicon.svg`.
+- Clear space: the rim's width (about 14% of the mark's height) on every side.
+- The ember rewind arc is not part of the logo. It appears only in the hero art (`technehora-rewind.svg`) and loading states (`technehora-rewind-spinner.svg`).
 
 ## Imagery
 
