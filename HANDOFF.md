@@ -9,7 +9,7 @@ Where the work stopped, so a fresh session can pick it up. Stage status always c
 | 02_brand | approved | Owner checks still open, and they block `07_launch`: technehora.com redirect, tagline, social handles, USPTO search |
 | 03_design-system | approved | Preview: https://claude.ai/artifact/TK9xxob6Pc3Wof2v6esks9 |
 | 04_sitemap | approved | Approved 2026-10-18: hubs earn their place, proof slots left out until real, only Rochester's area page at launch |
-| 05_content | in progress | |
+| 05_content | in progress | Voice-setting pages drafted (Home, Audit, HVAC, Book + thanks); owner reads them aloud before the rest. Open owner items in `stages/05_content/output/index.md` |
 
 ## Decisions made this session
 - **Name:** Techne Hora, said **TEK-nee OR-ah** (soft, almost silent H). technehora.ai is registered.
