@@ -32,11 +32,8 @@ The owner's direction: Hora can be subdued, replaced by the clock, or "lost in a
 
 **Next for the logo:** the owner picks a concept (or sets up Ludo for a comparison). Then refine it and build the full set: horizontal, stacked, icon, badge, light/dark, one-color, favicon, PNGs. After that, update `brand-spec.md` (Logo section; this reopens 02 only if the owner wants it recorded as a brand change) and the design system's Logos asset group.
 
-## Uncommitted at handoff
-- `stages/04_sitemap/` (new)
-- `03_design-system/output/design-system.md` (status set to approved)
-- `02_brand/output/logo-design-brief.md` (short prompt added)
-- `02_brand/output/logo-pitches.html`, `logo-bold-round.html`, `logo/_explorations/plex/`, `logo/_explorations/bold/`
+## Git
+Everything is committed and pushed (c9bf26a on main).
 
 ## Tooling notes
 - The logo scripts need fontTools + brotli (to read the woff2 files). The Plex woff2 files are in `03_design-system/output/fonts/`.
