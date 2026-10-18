@@ -9,6 +9,14 @@ A prompt pack for taking the logo further with other tools (ChatGPT, Gemini, Cla
 
 Every result comes back here for review against `brand-spec.md` before anything replaces the files in `logo/`.
 
+## Short prompt (under 1,024 characters)
+
+For tools with a character limit. It packs the essentials of Parts 1–3.
+
+```text
+Design a vector logo system for Techne Hora (said TEK-nee OR-ah), a Rochester, NY AI consultancy that gives small-business owners their hours back. Techne is Greek for craft; hora means hour. Core mark: a wall clock with hands at 10:00, the 10-to-12 wedge tinted blush, and a tapered coral arrow wrapping the dial counter-clockwise (time wound back). Weave the name into the clock: the O in Hora as the dial, an H whose crossbar forms the hands, a TH monogram, or a workshop seal. Type: IBM Plex Serif SemiBold, slightly open spacing. Use only navy #1B2A4A, cream #FAF7F0, brick #A63D2A, coral #E07A5F, blush #F3D3C8. Feel: precise, warm, crafted, trusted by a 50-year-old HVAC owner. Flat, no gradients; must work in one color, embroidered, and at 16px. No robots, brains, circuits, sparkles, glow or Greek columns. Spell it exactly "Techne Hora". Show 4 concepts first, then deliver horizontal, stacked, monogram and badge versions for light and dark backgrounds, as SVG with outlined text plus PNG.
+```
+
 ---
 
 ## Part 1: the brief (paste this first)
