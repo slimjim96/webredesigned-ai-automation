@@ -19,6 +19,8 @@ Do NOT load: `docs/` (positioning already distilled it); layout, pages, or compo
 - brand-spec.md → output/ (frontmatter `status: draft | approved`)
 - logo/ → output/ (SVG: mark, horizontal lockup; light and dark), rebuilt by `logo/_build_logo.py`
 - brand-sheet.html → output/ (visual reference of the final brand)
+- type-studies.html → output/ (type pairings on mockups; "Engineered" picked as the starting point)
+- logo-design-brief.md → output/ (prompt pack for designing the logo with other tools or a designer)
 
 ## Human check
 Pick one direction. Then imagine the logo on a van door and an invoice: would you put your name next to it?

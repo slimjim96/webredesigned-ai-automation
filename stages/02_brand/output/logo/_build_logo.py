@@ -1,4 +1,4 @@
-"""Build the final Hourback logo set (R2 wall-clock dial).
+"""Build the Techne Hora logo set (R2 wall-clock dial mark).
 
 Needs fontTools and the Fraunces variable font (Google Fonts, OFL):
     python -m venv .venv && .venv/bin/pip install fonttools
@@ -13,6 +13,7 @@ from fontTools.pens.transformPen import TransformPen
 
 N, ND, NL, P, B, BL = '#1B2A4A', '#111B31', '#2B4374', '#FAF7F0', '#A63D2A', '#E07A5F'
 OUT = os.path.dirname(os.path.abspath(__file__))
+NAME, SLUG = 'Techne Hora', 'technehora'
 
 def pt(deg, r, c=32):
     a = math.radians(deg); return (c + r * math.sin(a), c - r * math.cos(a))
@@ -64,23 +65,23 @@ def mark_favicon():
             "".join(line(pt(a, 14.5), pt(a, 17), N, 2.6) for a in (0, 90, 180, 270)) +
             line((32, 32), pt(300, 9), B, 5) + line((32, 32), pt(0, 12.5), N, 4) + f'<path d="{arrow}" fill="{BL}"/>')
 
-def wordmark(font_path):
+def wordmark(font_path, text=NAME):
     vf = TTFont(font_path)
     font = instantiateVariableFont(vf, {"wght": 700, "opsz": 144, "SOFT": 0, "WONK": 0})
     gs, cmap = font.getGlyphSet(), font.getBestCmap()
     upm, cap = font['head'].unitsPerEm, font['OS/2'].sCapHeight
     hmtx = font['hmtx']
     pen = SVGPathPen(gs); x = 0
-    for ch in "Hourback":
+    for ch in text:
         g = cmap[ord(ch)]
         gs[g].draw(TransformPen(pen, (1, 0, 0, -1, x, 0)))
         x += hmtx[g][0]
     bp = BoundsPen(gs); x2 = 0
-    for ch in "Hourback":
+    for ch in text:
         g = cmap[ord(ch)]; gs[g].draw(TransformPen(bp, (1, 0, 0, 1, x2, 0))); x2 += hmtx[g][0]
     return pen.getCommands(), bp.bounds, cap  # path in font units, y down, baseline at 0
 
-def write(name, w, h, body, label="Hourback"):
+def write(name, w, h, body, label=NAME):
     with open(os.path.join(OUT, name), 'w') as fh:
         fh.write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.0f} {h:.0f}" role="img" aria-label="{label}">{body}</svg>\n')
 
@@ -89,19 +90,26 @@ def main(font_path):
     # horizontal: cap height = 30/64 of the mark, vertically centered on it
     s = 30 / cap; ww = (xmax - xmin) * s
     gap = 14; hx = 64 + gap - xmin * s; hy = 32 + 15
-    word = lambda col, sc, tx, ty: f'<path transform="translate({tx:.2f} {ty:.2f}) scale({sc:.5f})" d="{d}" fill="{col}"/>'
+    word = lambda col, sc, tx, ty, path=d: f'<path transform="translate({tx:.2f} {ty:.2f}) scale({sc:.5f})" d="{path}" fill="{col}"/>'
     for theme, col in (('light', N), ('dark', P)):
-        write(f'hourback-lockup-horizontal-{theme}.svg', 64 + gap + ww + 2, 64, f'<g>{mark_full("h" + theme[0])}</g>' + word(col, s, hx, hy))
+        write(f'{SLUG}-lockup-horizontal-{theme}.svg', 64 + gap + ww + 2, 64, f'<g>{mark_full("h" + theme[0])}</g>' + word(col, s, hx, hy))
         # stacked: mark 64 centered over wordmark with cap 22
         s2 = 22 / cap; ww2 = (xmax - xmin) * s2; W = max(64, ww2) + 4
-        write(f'hourback-lockup-stacked-{theme}.svg', W, 64 + 14 + 22 + 2 + (-ymin * s2 if ymin < 0 else 0),
+        write(f'{SLUG}-lockup-stacked-{theme}.svg', W, 64 + 14 + 22 + 2 + (-ymin * s2 if ymin < 0 else 0),
               f'<g transform="translate({(W - 64) / 2:.2f} 0)">{mark_full("s" + theme[0])}</g>' + word(col, s2, (W - ww2) / 2 - xmin * s2, 64 + 14 + 22))
-        write(f'hourback-wordmark-{theme}.svg', ww + 2, (ymax - min(ymin, 0)) * s + 2, word(col, s, 1 - xmin * s, ymax * s + 1))
-    write('hourback-mark.svg', 64, 64, mark_full('m'), "Hourback mark")
-    write('hourback-mark-flat.svg', 64, 64, mark_flat(), "Hourback mark")
-    write('hourback-mark-mono-navy.svg', 64, 64, mark_mono(N, 'n'), "Hourback mark")
-    write('hourback-mark-mono-white.svg', 64, 64, mark_mono('#FFFFFF', 'w'), "Hourback mark")
-    write('favicon.svg', 64, 64, mark_favicon(), "Hourback")
+        # compact: mark beside the name on two lines (square-ish spaces: avatars, van doors)
+        lines = [wordmark(font_path, t) for t in NAME.split()]
+        s3 = 24 / cap; lh = 30; top = (64 - (lh + 24)) / 2 + 24
+        body = f'<g>{mark_full("c" + theme[0])}</g>'
+        for i, (dl, (lx0, _, lx1, _), _) in enumerate(lines):
+            body += word(col, s3, 64 + 12 - lx0 * s3, top + i * lh, dl)
+        write(f'{SLUG}-lockup-compact-{theme}.svg', 64 + 12 + max(l[1][2] - l[1][0] for l in lines) * s3 + 2, 64, body)
+        write(f'{SLUG}-wordmark-{theme}.svg', ww + 2, (ymax - min(ymin, 0)) * s + 2, word(col, s, 1 - xmin * s, ymax * s + 1))
+    write(f'{SLUG}-mark.svg', 64, 64, mark_full('m'), f"{NAME} mark")
+    write(f'{SLUG}-mark-flat.svg', 64, 64, mark_flat(), f"{NAME} mark")
+    write(f'{SLUG}-mark-mono-navy.svg', 64, 64, mark_mono(N, 'n'), f"{NAME} mark")
+    write(f'{SLUG}-mark-mono-white.svg', 64, 64, mark_mono('#FFFFFF', 'w'), f"{NAME} mark")
+    write('favicon.svg', 64, 64, mark_favicon())
 
 if __name__ == '__main__':
     main(sys.argv[1])
