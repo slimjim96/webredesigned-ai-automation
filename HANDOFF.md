@@ -8,7 +8,8 @@ Where the work stopped, so a fresh session can pick it up. Stage status always c
 | 01_positioning | approved | |
 | 02_brand | approved | Owner checks still open, and they block `07_launch`: technehora.com redirect, tagline, social handles, USPTO search |
 | 03_design-system | approved | Preview: https://claude.ai/artifact/TK9xxob6Pc3Wof2v6esks9 |
-| 04_sitemap | **draft: awaiting owner review** | `stages/04_sitemap/output/sitemap.md`. Next step: owner walks the visitor journeys and approves, then `05_content` |
+| 04_sitemap | approved | Approved 2026-10-18: hubs earn their place, proof slots left out until real, only Rochester's area page at launch |
+| 05_content | in progress | |
 
 ## Decisions made this session
 - **Name:** Techne Hora, said **TEK-nee OR-ah** (soft, almost silent H). technehora.ai is registered.

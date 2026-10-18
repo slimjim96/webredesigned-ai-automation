@@ -1,11 +1,11 @@
 ---
-status: draft
-updated: 2026-10-17
+status: approved
+updated: 2026-10-18
 ---
 
 # Sitemap: technehora.ai
 
-20 pages at launch (plus 404 and the thank-you page; `/examples` and some area pages only if their content is ready), each with one primary action: **Book a free 20-minute call** (`/book`). Headlines below are working labels; `05_content` writes the real copy. Component names are from the design system (`03_design-system`).
+15 pages at launch, plus `/book/thanks` and the 404. Three more go live when their content is ready: `/examples` (2+ real demos) and the Buffalo, Syracuse and Finger Lakes area pages (150+ words true only of that area). Each page has one primary action: **Book a free 20-minute call** (`/book`). Headlines below are working labels; `05_content` writes the real copy. Component names are from the design system (`03_design-system`).
 
 ## Structure
 
@@ -18,11 +18,11 @@ updated: 2026-10-17
 ├── /industries           Who we help (hub)
 │   ├── /industries/hvac          HVAC, plumbing & electrical   (lead vertical)
 │   ├── /industries/restaurants   Restaurants
-│   └── /industries/local-services  Other local businesses (TODO: third vertical; generic until chosen)
-├── /areas/rochester      Rochester & Monroe County       (footer + local search only)
-├── /areas/buffalo        Buffalo
-├── /areas/syracuse       Syracuse
-├── /areas/finger-lakes   Finger Lakes
+│   └── /industries/local-services  Other local businesses (TODO: third vertical; generic until chosen, then 301 to its own slug)
+├── /areas/rochester      Rochester & Monroe County       (footer + local search only; at launch)
+├── /areas/buffalo        Buffalo                         (when ready)
+├── /areas/syracuse       Syracuse                        (when ready)
+├── /areas/finger-lakes   Finger Lakes                    (when ready)
 ├── /about                About (the owner, how we work, "by Web Redesigned")
 ├── /examples             Examples of our builds          (launches only with 2+ real demos)
 ├── /faq                  Questions owners ask
@@ -33,7 +33,7 @@ updated: 2026-10-17
 ```
 
 **Header nav (4 links + button):** The audit · Training & builds · Who we help · About · [Book a call]
-**Footer:** Contact (phone, email, Rochester NY) · Where we work (the four area pages + "Remote, anywhere") · Site (Services, Industries, Examples, FAQ, Privacy, Accessibility) · "© Techne Hora, by Web Redesigned"
+**Footer:** Contact (phone, email, Rochester NY) · Where we work (the area pages that are live, the other regions as plain text, + "Remote, anywhere") · Site (Services, Industries, Examples, FAQ, Privacy, Accessibility) · "© Techne Hora, by Web Redesigned"
 **Phones:** `CallBar` on every page except `/book`, with "Call" and "Book a call".
 
 ## Pages
@@ -48,7 +48,7 @@ updated: 2026-10-17
   3. `SectionHeading` + `ServiceCard` ×3: Who we help: HVAC · Restaurants · Local businesses
   4. `Steps`: Book a free call → Get your roadmap → Fix it, then run it
   5. `PriceCard`: the audit, $750, with the credit note
-  6. `ProofSlot`: `[[PROOF NEEDED]]` until a real client quote exists
+  6. `ProofSlot`: left out at launch; added when a real client quote exists (see Proof below)
   7. `FAQ` (4 questions, linking to `/faq` for more)
   8. `CTABand`
 
@@ -68,8 +68,8 @@ updated: 2026-10-17
 
 ### Training & builds `/services`
 - **For:** owners who already know what they need, or who come back after the audit.
-- **Job:** explain the two follow-on offers briefly, and point to the audit as the way in.
-- **Sections:** `Hero` (no art) · `ServiceCard` ×2 (Training, Custom builds) · `Callout` "Most clients start with the audit; the fee is credited" · `CTABand`
+- **Job:** show the whole path in one look, so an owner sees where training and builds fit and why the audit comes first.
+- **Sections:** `Hero` (no art) · `Steps`: the path, Audit → Train your team → Build what pays back, each step one line on what you get and how it's priced ($750 / quoted from your roadmap / quoted from your roadmap) · `ServiceCard` ×2 (Training, Custom builds) linking down · `Callout` "The audit fee is credited toward training or a build booked within 30 days" · `CTABand`
 
 ### Workshops & team training `/services/training`
 - **Search:** "Copilot training small business", "ChatGPT Claude training for staff Rochester"
@@ -80,7 +80,9 @@ updated: 2026-10-17
 - **Sections:** `Hero` · `ServiceCard` ×3–6 kinds of build (missed-call text-back, quote drafts, intake forms, directories, follow-ups) described as outcomes · `Steps` (scope from the roadmap → build → train the team → hand over) · link to `/examples` once live · "Quoted from your roadmap" · `FAQ` · `CTABand`
 
 ### Who we help `/industries`
-- Short hub: `Hero` (no art) · `ServiceCard` ×3 for the verticals · `CTABand`. Exists mainly so the nav link has a home on phones.
+- **For:** an owner who isn't sure we work with businesses like theirs.
+- **Job:** let them recognize their own week in under 10 seconds, then go to their page or straight to booking.
+- **Sections:** `Hero` (no art) · per vertical, a short "Is this you?" block: 3 problems from that vertical's `ProblemList` + a link to its page (HVAC, Restaurants, Other local businesses) · one line for everyone else: "Not on the list? If your phone, quotes or schedule eat your week, the free call will tell us both in 20 minutes." · `CTABand`
 
 ### HVAC, plumbing & electrical `/industries/hvac`
 - **For:** the lead buyer. A trades owner who answers the phone from a crawlspace and writes quotes at 10pm.
@@ -91,7 +93,7 @@ updated: 2026-10-17
   3. `RoadmapTable`: a sample HVAC roadmap ("Sample · not a client")
   4. `Steps`: how an engagement runs
   5. `PriceCard`
-  6. `ProofSlot`: `[[PROOF NEEDED]]`
+  6. `ProofSlot`: left out at launch; added when real
   7. `FAQ`: trade-specific (works with ServiceTitan/Housecall Pro? TODO: owner confirms which tools are supported; no promises)
   8. `CTABand`
 
@@ -105,8 +107,8 @@ updated: 2026-10-17
 ### Area pages `/areas/rochester`, `/areas/buffalo`, `/areas/syracuse`, `/areas/finger-lakes`
 - **For:** local search ("AI consultant Buffalo"). Linked from the footer and `/about`, not the header.
 - **Job:** prove we're really local: on-site visits, travel area, what an on-site audit looks like there.
-- **Sections:** `Hero` (no art) · on-site details (towns covered, travel, how visits work) · `ServiceCard` ×3 offers · `ProofSlot` (local clients when they exist) · `FAQ` · `CTABand`
-- **Rule:** each page needs at least 150 words that are true only of that area. Four near-identical pages read to Google as doorway pages and can hurt the whole site. If a page can't meet that at launch, keep it in drafts and list the area on `/about` instead. Rochester is the minimum at launch.
+- **Sections:** `Hero` (no art) · on-site details (towns covered, travel, how visits work) · `ServiceCard` ×3 offers · `ProofSlot` (only once a local client result is real) · `FAQ` · `CTABand`
+- **Rule:** each page needs at least 150 words that are true only of that area. Four near-identical pages read to Google as doorway pages and can hurt the whole site. If a page can't meet that at launch, keep it in drafts and list the area on `/about` instead. **Decided 2026-10-18:** only Rochester launches; the other three follow as each meets the rule.
 
 ### About `/about`
 - **For:** the owner checking who they'd be letting into their business.
@@ -117,7 +119,7 @@ updated: 2026-10-17
 - If fewer than 2 are ready at launch, the page and its links stay out; `/services/custom-builds` describes build types instead.
 
 ### FAQ `/faq`
-- 10–15 questions grouped (The call · The audit · Training · Builds · Cost & data). `FAQ` component per group, then `CTABand`. Marked up with FAQPage structured data.
+- 10–15 questions grouped (The call · The audit · Training · Builds · Cost & data). `FAQ` component per group, then `CTABand`. FAQPage markup is optional: since 2023 Google shows FAQ rich results only for government and health sites, so it won't add search visibility.
 - Must include: "What happens to my data?" (plain answer about which tools see what; TODO: owner confirms practices).
 
 ### Book a call `/book`
@@ -141,7 +143,8 @@ updated: 2026-10-17
 | Referred by a friend, types technehora.ai | `/` | Hero → `/audit` → price card button | 2 |
 | Restaurant owner from a Facebook post | `/industries/restaurants` | problems → `PriceCard` button | 1 |
 | Cautious owner who wants to know who you are | `/` | About → `CTABand` | 2 |
-| Buffalo owner searching locally | `/areas/buffalo` | on-site details → `/audit` → book | 2 |
+| Rochester owner searching locally | `/areas/rochester` | on-site details → `CTABand` | 1 |
+| Owner unsure we serve their kind of business | `/industries` | "Is this you?" → their vertical page → `CallBar` | 2 |
 | Past audit client ready for training | `/services/training` | `CTABand` (or calls the number) | 1 |
 | Owner who would rather call than click | any page | `CallBar` "Call" / footer number | 0 (phone) |
 
@@ -154,7 +157,7 @@ updated: 2026-10-17
 | Click to call | `tel:` link in `CallBar` and footer | most trades owners call |
 | Analytics | **Plausible** or Cloudflare Web Analytics (no cookie banner needed) | counts visits and bookings without tracking people; keeps the privacy page simple |
 | Conversion events | "booking started", "booking completed", "form sent", "call tapped" | the only numbers that matter |
-| Structured data | `ProfessionalService` (LocalBusiness) with service area on every page; `Service` on offer pages; `FAQPage` on `/faq` | local search and rich results |
+| Structured data | `ProfessionalService` (LocalBusiness) with service area on every page; `Service` on offer pages | local search; `ProfessionalService` with `areaServed` is what feeds local results |
 | SEO basics | unique title and description per page, `sitemap.xml`, `robots.txt`, canonical URLs, Open Graph images (mark + page title) | |
 | Google Business Profile | link from footer and `/about`; same name, address area, and phone everywhere | the strongest local signal |
 | Email | hello@technehora.ai (TODO: set up mail on the domain) | used in footer, form, booking emails |
@@ -168,10 +171,13 @@ Out of scope at launch: a blog, client login, live chat, newsletter, pricing for
 - **Breadcrumbs:** on child pages (`/services/…`, `/industries/…`, `/areas/…`), text-small with `link`.
 None of these need new tokens, so 03 stays approved.
 
+## Proof (decided 2026-10-18)
+No client results exist yet, so every `ProofSlot` is **left out at launch**, not shown as a placeholder. The pages lean on what is true today: the free call, the credited audit fee, and the sample roadmap marked "Sample · not a client". Each slot comes back when a real quote or result exists (`_shared/rules.md` #2).
+
 ## Open items
 - TODO: third vertical
 - TODO: which demos can go on `/examples`
 - TODO: workshop formats; tools supported for trades (e.g. ServiceTitan, Housecall Pro) without overpromising
 - TODO: owner photo for Hero/About
 - TODO: data-handling answer for the FAQ and privacy page
-- `[[PROOF NEEDED]]` slots on Home, HVAC, Restaurants and area pages block `07_launch` until filled with real proof or removed
+- TODO: business phone number for the `CallBar`, footer and structured data (the design-system previews use a 555 sample)
