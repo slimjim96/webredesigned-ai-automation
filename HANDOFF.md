@@ -20,10 +20,11 @@ The owner picked **C3, "the dial label"**: a navy-rimmed clock at 10:00 with the
 - Set built by `02_brand/output/logo/_build_logo.py` (SVGs) and `_render_png.py` (PNGs). The compact lockups were dropped, because the horizontal lockup already puts the name on two lines
 - `brand-spec.md` Logo section and the design system's Logos README / header height (now 48px) are updated
 - Rounds explored, for reference: `logo/_explorations/rewind/` (3D puzzle marks, rejected as too complex) and `logo/_explorations/plex-refined/` (C1–C3)
-- Stale, not yet redone: `02_brand/output/brand-sheet.html` (still shows Fraunces + the old mark), the design-system preview artifact and `SiteHeader/preview.html`. `logo-design-brief.md` (status: draft) is now moot
+- Brand sheet redone and built by `02_brand/output/_build_sheet.py` (inlines the logo SVGs): https://claude.ai/artifact/2TeB3biugnrhD6XmtHaGP5
+- Stale, not yet redone: the design-system preview artifact and `SiteHeader/preview.html`. `logo-design-brief.md` (status: draft) is now moot
 
 ## Git
-The logo set is built but not committed yet (last commit 34c9c5f on main).
+Everything is committed and pushed to main.
 
 ## Tooling notes
 - The logo scripts need fontTools + brotli (to read the woff2 files). The Plex woff2 files are in `03_design-system/output/fonts/`.

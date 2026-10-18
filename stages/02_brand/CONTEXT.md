@@ -17,8 +17,8 @@ Do NOT load: `docs/` (positioning already distilled it); layout, pages, or compo
 
 ## Outputs
 - brand-spec.md → output/ (frontmatter `status: draft | approved`)
-- logo/ → output/ (SVG: mark, horizontal lockup; light and dark), rebuilt by `logo/_build_logo.py`
-- brand-sheet.html → output/ (visual reference of the final brand)
+- logo/ → output/ (SVG: mark, horizontal lockup; light and dark), rebuilt by `logo/_build_logo.py` (PNGs by `logo/_render_png.py`)
+- brand-sheet.html → output/ (visual reference of the final brand), rebuilt by `_build_sheet.py`
 - type-studies.html → output/ (type pairings on mockups; "Engineered" picked as the starting point)
 - logo-design-brief.md → output/ (prompt pack for designing the logo with other tools or a designer)
 
