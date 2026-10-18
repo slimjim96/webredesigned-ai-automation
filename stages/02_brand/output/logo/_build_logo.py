@@ -1,115 +1,173 @@
-"""Build the Techne Hora logo set (R2 wall-clock dial mark).
+"""Build the Techne Hora logo set: the C3 "dial label" design (owner's pick, 2026-10-18).
 
-Needs fontTools and the Fraunces variable font (Google Fonts, OFL):
-    python -m venv .venv && .venv/bin/pip install fonttools
-    .venv/bin/python _build_logo.py path/to/Fraunces[SOFT,WONK,opsz,wght].ttf
+The mark is a navy-rimmed clock at 10:00 with the last two hours tinted; the name is "Techne" in IBM Plex Serif
+with H·O·R·A set under it in Plex Mono, spaced like hour marks. The C1 rewind arrow is kept as a separate motion
+asset (`technehora-rewind*.svg`), never part of the logo itself.
+
+Needs fontTools + brotli and the Plex woff2 files in stages/03_design-system/output/fonts/:
+    python -m venv .venv && .venv/bin/pip install fonttools brotli
+    .venv/bin/python _build_logo.py
+PNGs come from `_render_png.py` (needs pillow and google-chrome).
 """
-import math, os, sys
+import math, os
 from fontTools.ttLib import TTFont
-from fontTools.varLib.instancer import instantiateVariableFont
 from fontTools.pens.svgPathPen import SVGPathPen
-from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.transformPen import TransformPen
 
-N, ND, NL, P, B, BL = '#1B2A4A', '#111B31', '#2B4374', '#FAF7F0', '#A63D2A', '#E07A5F'
 OUT = os.path.dirname(os.path.abspath(__file__))
+FONTS = os.path.normpath(os.path.join(OUT, '../../../03_design-system/output/fonts'))
+SERIF = TTFont(os.path.join(FONTS, 'IBMPlexSerif-600.woff2'))
+MONO = TTFont(os.path.join(FONTS, 'IBMPlexMono-500.woff2'))
 NAME, SLUG = 'Techne Hora', 'technehora'
 
-def pt(deg, r, c=32):
-    a = math.radians(deg); return (c + r * math.sin(a), c - r * math.cos(a))
-f = lambda p: f"{p[0]:.2f} {p[1]:.2f}"
-def sector(a0, a1, r):
-    s, e = pt(a0, r), pt(a1, r)
-    return f"M32 32L{f(s)}A{r} {r} 0 {1 if (a1-a0) % 360 > 180 else 0} 1 {f(e)}Z"
-def taper_arc(a_start, a_end, r, w0, w1, head=6, steps=48):
+N, NL, P, B, E, BLUSH = '#1B2A4A', '#2B4374', '#FAF7F0', '#A63D2A', '#E07A5F', '#F3D3C8'
+G, GD = '#5C6170', '#B8BFCC'  # graphite for HORA: on light backgrounds, and its pair on navy
+
+
+# ---------------------------------------------------------------- geometry
+def pt(cx, cy, deg, r):
+    a = math.radians(deg); return cx + r * math.sin(a), cy - r * math.cos(a)
+f2 = lambda p: f'{p[0]:.2f} {p[1]:.2f}'
+def line(a, b, col, w): return f'<path d="M{f2(a)}L{f2(b)}" stroke="{col}" stroke-width="{w:.2f}" stroke-linecap="round"/>'
+def sector(cx, cy, a0, a1, r):
+    s, e = pt(cx, cy, a0, r), pt(cx, cy, a1, r)
+    return f'M{cx:.2f} {cy:.2f}L{f2(s)}A{r:.2f} {r:.2f} 0 0 1 {f2(e)}Z'
+def ring(cx, cy, r0, r1):
+    """Annulus as one evenodd path."""
+    c = lambda r: f'M{cx - r:.2f} {cy:.2f}a{r:.2f} {r:.2f} 0 1 0 {2 * r:.2f} 0a{r:.2f} {r:.2f} 0 1 0 {-2 * r:.2f} 0Z'
+    return c(r1) + c(r0)
+
+def taper_arc(cx, cy, a0, a1, r, w0, w1, head, steps=48):
     outer, inner = [], []
     for i in range(steps + 1):
-        t = i / steps; a = a_start + (a_end - a_start) * t; w = w0 + (w1 - w0) * t
-        outer.append(pt(a, r + w / 2)); inner.append(pt(a, r - w / 2))
-    tip = pt(a_end - head * 360 / (2 * math.pi * r), r); hw = w1 * 1.25 + 1.5
-    d = "M" + f(outer[0]) + "".join("L" + f(p) for p in outer[1:])
-    d += "L" + f(pt(a_end, r + hw)) + "L" + f(tip) + "L" + f(pt(a_end, r - hw))
-    return d + "".join("L" + f(p) for p in reversed(inner)) + "Z"
-def line(p0, p1, col, w, op=1):
-    return f'<path d="M{f(p0)}L{f(p1)}" stroke="{col}" stroke-width="{w}" stroke-linecap="round"' + (f' stroke-opacity="{op}"' if op < 1 else '') + '/>'
+        t = i / steps; a = a0 + (a1 - a0) * t; w = w0 + (w1 - w0) * t
+        outer.append(pt(cx, cy, a, r + w / 2)); inner.append(pt(cx, cy, a, r - w / 2))
+    tip = pt(cx, cy, a1 - head * 360 / (2 * math.pi * r), r); hw = w1 * 1.25 + head * .25
+    return ('M' + 'L'.join(f2(p) for p in outer) + f'L{f2(pt(cx, cy, a1, r + hw))}L{f2(tip)}L{f2(pt(cx, cy, a1, r - hw))}'
+            + ''.join('L' + f2(p) for p in reversed(inner)) + 'Z')
 
-ARROW = taper_arc(55, -95, 25.5, 1, 3.6)
-def ticks(col, op=.75, every=30):
-    return "".join(line(pt(a, 15.8 if a % 90 == 0 else 16.6), pt(a, 17.6), col, 1.6 if a % 90 == 0 else 1, op) for a in range(0, 360, every))
-def hands(mcol, hcol, mw=2.6, hw=3.6):
-    return line((32, 32), pt(300, 9.5), hcol, hw) + line((32, 32), pt(0, 13), mcol, mw)
-def pin(col, ring): return f'<circle cx="32" cy="32" r="3.2" fill="{ring}"/><circle cx="32" cy="32" r="1.4" fill="{col}"/>'
 
-def mark_full(id):
-    return (f'<defs><radialGradient id="{id}g" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="{NL}"/><stop offset=".55" stop-color="{N}"/><stop offset="1" stop-color="{ND}"/></radialGradient>'
-            f'<linearGradient id="{id}f" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E9E1D0"/></linearGradient></defs>'
-            f'<circle cx="32" cy="32" r="30" fill="url(#{id}g)"/><circle cx="32" cy="32" r="29.4" fill="none" stroke="#FFFFFF" stroke-opacity=".10" stroke-width="1.2"/>'
-            f'<circle cx="33.4" cy="34" r="19" fill="{ND}" opacity=".7"/><circle cx="32" cy="32" r="19" fill="url(#{id}f)"/>'
-            f'<circle cx="32" cy="32" r="19" fill="none" stroke="{N}" stroke-opacity=".15" stroke-width="1"/>'
-            f'<path d="{sector(300, 360, 15.5)}" fill="{BL}" fill-opacity=".28"/>' + ticks(N) + hands(N, B) +
-            f'<path d="{ARROW}" fill="{BL}"/>' + pin(P, N))
-def mark_flat():
-    return (f'<circle cx="32" cy="32" r="30" fill="{N}"/><circle cx="32" cy="32" r="19" fill="{P}"/>'
-            f'<path d="{sector(300, 360, 15.5)}" fill="#F3D3C8"/>' + ticks(N, 1) + hands(N, B) +
-            f'<path d="{ARROW}" fill="{BL}"/>' + pin(P, N))
-def mark_mono(col, id):
-    # one ink: disc with the face and arrow knocked out; ticks/hands in ink inside the face
-    return (f'<defs><mask id="{id}m"><rect width="64" height="64" fill="#fff"/><circle cx="32" cy="32" r="19" fill="#000"/>'
-            f'<path d="{ARROW}" fill="#000"/></mask></defs>'
-            f'<circle cx="32" cy="32" r="30" fill="{col}" mask="url(#{id}m)"/>' + ticks(col, 1) + hands(col, col) +
-            f'<circle cx="32" cy="32" r="3" fill="{col}"/>')
-def mark_favicon():
-    # tuned for 16-32px: no tint, four ticks, heavier hands and arrow
-    arrow = taper_arc(55, -95, 25, 2.2, 4.6, head=7)
-    return (f'<circle cx="32" cy="32" r="30" fill="{N}"/><circle cx="32" cy="32" r="18.5" fill="{P}"/>' +
-            "".join(line(pt(a, 14.5), pt(a, 17), N, 2.6) for a in (0, 90, 180, 270)) +
-            line((32, 32), pt(300, 9), B, 5) + line((32, 32), pt(0, 12.5), N, 4) + f'<path d="{arrow}" fill="{BL}"/>')
+# ---------------------------------------------------------------- type
+def text(font, s, size, x, base, fill, track=0.0):
+    """Outline text to paths; returns (svg, advance width)."""
+    gs, cmap, hmtx, k = font.getGlyphSet(), font.getBestCmap(), font['hmtx'], size / font['head'].unitsPerEm
+    out, cx = [], x
+    for ch in s:
+        g = cmap[ord(ch)]; pen = SVGPathPen(gs)
+        gs[g].draw(TransformPen(pen, (k, 0, 0, -k, cx, base)))
+        out.append(f'<path d="{pen.getCommands()}" fill="{fill}"/>')
+        cx += hmtx[g][0] * k + track * size
+    return ''.join(out), cx - x - track * size
 
-def wordmark(font_path, text=NAME):
-    vf = TTFont(font_path)
-    font = instantiateVariableFont(vf, {"wght": 700, "opsz": 144, "SOFT": 0, "WONK": 0})
-    gs, cmap = font.getGlyphSet(), font.getBestCmap()
-    upm, cap = font['head'].unitsPerEm, font['OS/2'].sCapHeight
-    hmtx = font['hmtx']
-    pen = SVGPathPen(gs); x = 0
-    for ch in text:
-        g = cmap[ord(ch)]
-        gs[g].draw(TransformPen(pen, (1, 0, 0, -1, x, 0)))
-        x += hmtx[g][0]
-    bp = BoundsPen(gs); x2 = 0
-    for ch in text:
-        g = cmap[ord(ch)]; gs[g].draw(TransformPen(bp, (1, 0, 0, 1, x2, 0))); x2 += hmtx[g][0]
-    return pen.getCommands(), bp.bounds, cap  # path in font units, y down, baseline at 0
+def cap(font, size): return font['OS/2'].sCapHeight * size / font['head'].unitsPerEm
+
+def hora_label(x, base, width, size, fill):
+    """H · O · R · A in mono, spread to `width`, with round ticks between the letters like hour marks."""
+    advs = [text(MONO, ch, size, 0, 0, fill)[1] for ch in 'HORA']
+    step = (width - advs[-1]) / 3; capS = cap(MONO, size)
+    out = ''.join(text(MONO, ch, size, x + i * step, base, fill)[0] for i, ch in enumerate('HORA'))
+    for i in range(3):
+        mx = x + i * step + advs[i] + (step - advs[i]) / 2
+        out += f'<circle cx="{mx:.2f}" cy="{base - capS / 2:.2f}" r="{size * .07:.2f}" fill="{fill}"/>'
+    return out
+
+
+# ---------------------------------------------------------------- the mark
+def dial(cx, cy, R, uid, dark=False, soft=True, favicon=False, arrow=False):
+    """Rim + face, four ticks, hands at 10:00, last two hours tinted.
+    soft: the one soft touch, a faint shadow inside the top of the face so it sits just below the rim.
+    favicon: heavier ticks and hands for 16-32px. arrow: the C1 rewind arc on the rim (motion asset only)."""
+    face = R * .72; k = 1.3 if favicon else 1
+    o = [f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{R:.2f}" fill="{NL if dark else N}"/>',
+         f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{face:.2f}" fill="{P}"/>']
+    if soft:
+        o.append(f'<defs><clipPath id="f{uid}"><circle cx="{cx:.2f}" cy="{cy:.2f}" r="{face:.2f}"/></clipPath>'
+                 f'<filter id="b{uid}" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="{face * .05:.2f}"/></filter></defs>'
+                 f'<g clip-path="url(#f{uid})"><circle cx="{cx:.2f}" cy="{cy + face * .06:.2f}" r="{face * 1.04:.2f}" fill="none" '
+                 f'stroke="{N}" stroke-opacity=".22" stroke-width="{face * .12:.2f}" filter="url(#b{uid})"/></g>')
+    o.append(f'<path d="{sector(cx, cy, 300, 360, face * .82)}" fill="{BLUSH}"/>')
+    for a in (0, 90, 180, 270):
+        o.append(line(pt(cx, cy, a, face * (.74 if favicon else .78)), pt(cx, cy, a, face * .92), N, face * .08 * k))
+    o.append(line((cx, cy), pt(cx, cy, 300, face * .50), B, face * .13 * k))
+    o.append(line((cx, cy), pt(cx, cy, 0, face * .70), N, face * .09 * k))
+    o.append(f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{face * .11 * k:.2f}" fill="{N}"/>')
+    if arrow:
+        o.append(f'<path d="{taper_arc(cx, cy, 62, -48, R * .86, R * .025, R * .075, R * .14)}" fill="{E}"/>')
+    return ''.join(o)
+
+def dial_mono(cx, cy, R, ink):
+    """One ink: the rim, ticks, and hands; the face and the tint are left open."""
+    face = R * .72
+    o = [f'<path d="{ring(cx, cy, face, R)}" fill="{ink}" fill-rule="evenodd"/>']
+    for a in (0, 90, 180, 270):
+        o.append(line(pt(cx, cy, a, face * .78), pt(cx, cy, a, face * .92), ink, face * .08))
+    o.append(line((cx, cy), pt(cx, cy, 300, face * .50), ink, face * .13))
+    o.append(line((cx, cy), pt(cx, cy, 0, face * .70), ink, face * .09))
+    o.append(f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{face * .11:.2f}" fill="{ink}"/>')
+    return ''.join(o)
+
+
+# ---------------------------------------------------------------- lockups
+SIZE = 100  # Techne set at 100 units; everything else is proportional
+
+def name_block(x, top, ink, mute):
+    """Techne over H·O·R·A. Returns (svg, width, height)."""
+    capH = cap(SERIF, SIZE); small = SIZE * .34; capS = cap(MONO, small); lead = capH * .42
+    t, w = text(SERIF, 'Techne', SIZE, x, top + capH, ink, track=.01)
+    t += hora_label(x + 2, top + capH + lead + capS, w - 4, small, mute)
+    return t, w, capH + lead + capS
+
+def horizontal(dark=False, pad=10):
+    ink, mute = (P, GD) if dark else (N, G)
+    _, _, block = name_block(0, 0, ink, mute)
+    R = block * .62; cx = cy = pad + R; x = cx + R + SIZE * .28
+    t, w, _ = name_block(x, cy - block / 2, ink, mute)
+    return x + w + pad, 2 * R + 2 * pad, dial(cx, cy, R, f'h{int(dark)}', dark) + t
+
+def stacked(dark=False):
+    ink, mute = (P, GD) if dark else (N, G)
+    size = 64; R = 70; scale = size / SIZE
+    _, w, block = name_block(0, 0, ink, mute)
+    W = max(w * scale, 2 * R) + 40
+    t, _, _ = name_block(0, 0, ink, mute)
+    top = 2 * R + 34
+    body = (dial(W / 2, R + 6, R, f's{int(dark)}', dark)
+            + f'<g transform="translate({(W - w * scale) / 2:.2f} {top:.2f}) scale({scale:.4f})">{t}</g>')
+    return W, top + block * scale + 14, body
+
+def wordmark(dark=False, pad=4):
+    ink, mute = (P, GD) if dark else (N, G)
+    t, w, block = name_block(pad, pad, ink, mute)
+    return w + 2 * pad, block + 2 * pad, t
+
+
+# ---------------------------------------------------------------- motion assets (C1 arrow)
+def rewind_spinner():
+    """The rewind arc turning counter-clockwise around a still face. For loading states; stops for reduced motion."""
+    c, R = 32, 30
+    arc = f'<path d="{taper_arc(c, c, 62, -48, R * .86, R * .025, R * .075, R * .14)}" fill="{E}"/>'
+    style = ('<style>.th-rw{transform-origin:32px 32px;animation:th-rw 1.6s cubic-bezier(.45,0,.25,1) infinite}'
+             '@keyframes th-rw{to{transform:rotate(-360deg)}}'
+             '@media (prefers-reduced-motion:reduce){.th-rw{animation:none}}</style>')
+    return style + dial(c, c, R, 'sp', soft=False) + f'<g class="th-rw">{arc}</g>'
+
 
 def write(name, w, h, body, label=NAME):
     with open(os.path.join(OUT, name), 'w') as fh:
         fh.write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.0f} {h:.0f}" role="img" aria-label="{label}">{body}</svg>\n')
 
-def main(font_path):
-    d, (xmin, ymin, xmax, ymax), cap = wordmark(font_path)
-    # horizontal: cap height = 30/64 of the mark, vertically centered on it
-    s = 30 / cap; ww = (xmax - xmin) * s
-    gap = 14; hx = 64 + gap - xmin * s; hy = 32 + 15
-    word = lambda col, sc, tx, ty, path=d: f'<path transform="translate({tx:.2f} {ty:.2f}) scale({sc:.5f})" d="{path}" fill="{col}"/>'
-    for theme, col in (('light', N), ('dark', P)):
-        write(f'{SLUG}-lockup-horizontal-{theme}.svg', 64 + gap + ww + 2, 64, f'<g>{mark_full("h" + theme[0])}</g>' + word(col, s, hx, hy))
-        # stacked: mark 64 centered over wordmark with cap 22
-        s2 = 22 / cap; ww2 = (xmax - xmin) * s2; W = max(64, ww2) + 4
-        write(f'{SLUG}-lockup-stacked-{theme}.svg', W, 64 + 14 + 22 + 2 + (-ymin * s2 if ymin < 0 else 0),
-              f'<g transform="translate({(W - 64) / 2:.2f} 0)">{mark_full("s" + theme[0])}</g>' + word(col, s2, (W - ww2) / 2 - xmin * s2, 64 + 14 + 22))
-        # compact: mark beside the name on two lines (square-ish spaces: avatars, van doors)
-        lines = [wordmark(font_path, t) for t in NAME.split()]
-        s3 = 24 / cap; lh = 30; top = (64 - (lh + 24)) / 2 + 24
-        body = f'<g>{mark_full("c" + theme[0])}</g>'
-        for i, (dl, (lx0, _, lx1, _), _) in enumerate(lines):
-            body += word(col, s3, 64 + 12 - lx0 * s3, top + i * lh, dl)
-        write(f'{SLUG}-lockup-compact-{theme}.svg', 64 + 12 + max(l[1][2] - l[1][0] for l in lines) * s3 + 2, 64, body)
-        write(f'{SLUG}-wordmark-{theme}.svg', ww + 2, (ymax - min(ymin, 0)) * s + 2, word(col, s, 1 - xmin * s, ymax * s + 1))
-    write(f'{SLUG}-mark.svg', 64, 64, mark_full('m'), f"{NAME} mark")
-    write(f'{SLUG}-mark-flat.svg', 64, 64, mark_flat(), f"{NAME} mark")
-    write(f'{SLUG}-mark-mono-navy.svg', 64, 64, mark_mono(N, 'n'), f"{NAME} mark")
-    write(f'{SLUG}-mark-mono-white.svg', 64, 64, mark_mono('#FFFFFF', 'w'), f"{NAME} mark")
-    write('favicon.svg', 64, 64, mark_favicon())
+def main():
+    for theme, dark in (('light', False), ('dark', True)):
+        write(f'{SLUG}-lockup-horizontal-{theme}.svg', *horizontal(dark))
+        write(f'{SLUG}-lockup-stacked-{theme}.svg', *stacked(dark))
+        write(f'{SLUG}-wordmark-{theme}.svg', *wordmark(dark))
+    write(f'{SLUG}-mark.svg', 64, 64, dial(32, 32, 30, 'm'), f'{NAME} mark')
+    write(f'{SLUG}-mark-flat.svg', 64, 64, dial(32, 32, 30, 'mf', soft=False), f'{NAME} mark')
+    write(f'{SLUG}-mark-mono-navy.svg', 64, 64, dial_mono(32, 32, 30, N), f'{NAME} mark')
+    write(f'{SLUG}-mark-mono-white.svg', 64, 64, dial_mono(32, 32, 30, '#FFFFFF'), f'{NAME} mark')
+    write('favicon.svg', 64, 64, dial(32, 32, 31, 'fv', soft=False, favicon=True), f'{NAME} icon')
+    write(f'{SLUG}-rewind.svg', 64, 64, dial(32, 32, 30, 'rw', arrow=True), f'{NAME}: time wound back')
+    write(f'{SLUG}-rewind-spinner.svg', 64, 64, rewind_spinner(), 'Loading')
 
 if __name__ == '__main__':
-    main(sys.argv[1])
+    main()

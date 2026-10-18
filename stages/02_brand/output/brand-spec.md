@@ -1,11 +1,11 @@
 ---
 status: approved
-updated: 2026-10-17
+updated: 2026-10-18
 ---
 
 # Brand spec: Techne Hora
 
-Palette, type, and voice from direction C; mark is the R2 wall-clock dial. Name chosen in round 5 (after Lake Effect, Millrace, Hourback, Mainspring, Kairos and others). Earlier directions and marks are archived in `logo/_explorations/` (reference only).
+Palette, type, and voice from direction C; logo is the C3 "dial label" (picked 2026-10-18). Name chosen in round 5 (after Lake Effect, Millrace, Hourback, Mainspring, Kairos and others). Earlier directions and marks are archived in `logo/_explorations/` (reference only).
 
 ## Name and lines
 - **Name:** Techne Hora. Two words, both capitalized. Never "TechneHora", "Techne-Hora", or "Techne Hora AI" in the logo
@@ -21,25 +21,29 @@ Palette, type, and voice from direction C; mark is the R2 wall-clock dial. Name 
 - TODO: technehora.com: register and redirect to .ai (owners type ".com" by habit)
 
 ## Logo
-**Mark:** a cream clock face set slightly above a navy disc, hands at 10 and 12, the last two hours tinted, and a brick arrow wrapping the dial counter-clockwise: time wound back.
+**Mark:** a navy-rimmed clock at ten o'clock. The face sits just below the rim (one faint shadow, the only soft touch), and the last two hours, 10 to 12, are tinted: the hours given back.
+**Name:** "Techne" in IBM Plex Serif 600, with H·O·R·A under it in Plex Mono, graphite, spread to Techne's width with round ticks between the letters, the way a watch prints small text on its dial. The whole name stays readable and searchable, and Hora stays quiet.
+**Motion only:** the ember rewind arrow (round 5, C1) is not part of the logo. It appears where movement makes sense: the site hero, loading states, the first slide of a pitch.
 
 | File (`logo/`) | Use |
 |---|---|
-| `technehora-lockup-horizontal-light.svg` / `-dark.svg` | default: site header, invoices, email signature |
-| `technehora-lockup-compact-light.svg` / `-dark.svg` | name on two lines beside the mark: van doors, social avatars with name, business cards |
-| `technehora-lockup-stacked-light.svg` / `-dark.svg` | mark centered over the name: shirts, signage, title slides |
-| `technehora-wordmark-light.svg` / `-dark.svg` | where the mark already appears nearby |
-| `technehora-mark.svg` | the full-color mark: social avatar, app icon |
-| `technehora-mark-flat.svg` | no gradients: print, signage, anything that can't reproduce shading |
-| `technehora-mark-mono-navy.svg` / `-white.svg` | one ink: embroidery, vinyl cut, stamps, fax/photocopy |
-| `favicon.svg`, `png/favicon-16/32/48.png` | browser tab (simplified: four ticks, heavier hands) |
-| `png/apple-touch-icon.png` (180), `png/technehora-mark-512/1024.png` | phone home screen, social uploads |
+| `technehora-lockup-horizontal-light.svg` / `-dark.svg` | default: site header, invoices, email signature, van doors |
+| `technehora-lockup-stacked-light.svg` / `-dark.svg` | mark centered over the name: shirts, signage, title slides, square avatars with name |
+| `technehora-wordmark-light.svg` / `-dark.svg` | name only, where the mark already appears nearby |
+| `technehora-mark.svg` | the mark with its soft touch: social avatar, app icon, hero |
+| `technehora-mark-flat.svg` | no shadow: print, signage, anything that can't reproduce soft effects |
+| `technehora-mark-mono-navy.svg` / `-white.svg` | one ink, face left open: embroidery, vinyl cut, stamps, photocopies |
+| `favicon.svg`, `png/favicon-16/32/48.png` | browser tab (flat, heavier ticks and hands) |
+| `png/apple-touch-icon.png` (180, on paper), `png/technehora-mark-512/1024.png` | phone home screen, social uploads |
+| `technehora-rewind.svg` | motion asset: the mark with the ember rewind arc (static) |
+| `technehora-rewind-spinner.svg` | motion asset: the arc turning counter-clockwise; stops under reduced motion |
 
-- Wordmark: currently Fraunces Bold (opsz 144), outlined to paths so the files need no font installed. A redesign is in progress via `logo-design-brief.md`
-- `_build_logo.py` regenerates every SVG; see its docstring
-- **Clear space:** keep the radius of the clock face (about 30% of the mark's height) empty on all sides
-- **Minimum size:** full mark 24px / 8mm; below 24px use `favicon.svg`
-- **Don't:** recolor the mark, rotate it, add effects, put the full-color mark on busy photos (use mono-white on a dark scrim instead)
+- Every letter is outlined to paths, so no font needs to be installed
+- `_build_logo.py` regenerates every SVG; `_render_png.py` regenerates the PNGs. See their docstrings
+- **Minimum size:** the lockups need 48px / 16mm of height for H·O·R·A to read. Below that, use the mark alone; below 24px, use `favicon.svg`
+- **Clear space:** keep the rim's width (about 14% of the mark's height) empty on all sides
+- **Don't:** recolor the mark, rotate it, set HORA in a heavier weight or in color, put the rewind arrow in the static logo, or put the full-color mark on busy photos (use mono-white on a dark scrim instead)
+- Rounds explored before this pick are in `logo/_explorations/` (reference only)
 
 ## Color
 Every text pair passes WCAG 2.2 AA (`_shared/rules.md` #5).
@@ -59,7 +63,7 @@ Direction: "Engineered" from `type-studies.html` (owner's starting pick, 2026-10
 - **Body and UI:** IBM Plex Sans, 400 / 600
 - **Details** (numbers in roadmaps, badges, small labels): IBM Plex Mono
 - All on Google Fonts (OFL)
-- TODO: the current wordmark files are still outlined in Fraunces. They get replaced when the logo redesign in `logo-design-brief.md` comes back
+- The logo uses the same faces (Serif 600 and Mono 500), outlined to paths
 
 ## Voice
 A straight-talking advisor. Plain words, short sentences, outcomes before tools (`_shared/rules.md` #3). The Greek name is the one fancy thing; the copy around it stays plain.
