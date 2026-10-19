@@ -53,13 +53,13 @@ Answered by the owner on 2026-10-18, and written into every page listed.
 | 12 | Named software | None; kept general | `industries-hvac`, `industries-restaurants` |
 | 13 | Travel | No travel fee anywhere in Western NY; "at your door soon after" (softened from "the week after") | `areas-rochester` |
 | 14 | Web Redesigned on About and in the footer | Left out of both (still named as the operator on `privacy`) | `about`, footer |
+| 2 | About bio | Jim (once "Slim"); grew up in Rochester; 25 years building software end to end; now applying AI to business processes and training teams. Employer not named | `about` |
 | 15 | Sample roadmap hours | Keep, labeled "Sample · not a client" | `audit`, `industries-hvac`, `industries-restaurants` |
 
-### Still open (these block approval)
+### Still open (blocks approval)
 | # | Item | Pages |
 |---|---|---|
 | 1 | Business phone number | `book`, `privacy`, `accessibility` (+ `CallBar`, footer, structured data) |
-| 2 | Your name, and 2–3 sentences of background you're comfortable publishing | `about` |
 
 ### Later, not blocking
 - **#3 Photo:** About launches with the rewind mark; swap in a photo of you at work when you have one.

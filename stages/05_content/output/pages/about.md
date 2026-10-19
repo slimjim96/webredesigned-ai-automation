@@ -24,7 +24,9 @@ search: Techne Hora; AI consultant Rochester about
 ## SectionHeading + text
 - **H2:** Who you'll work with
 - **Paragraphs:**
-  - [[OWNER: your name, and two or three sentences in your own words: background as a full-stack developer, years of experience, the kind of work you've done applying AI to real business processes. Only what you're comfortable publishing.]]
+  - I'm Jim. People used to call me Slim, though fewer do these days. I grew up in Rochester and have lived here all my life.
+  - I've spent 25 years building software, from websites to full business applications. I've done every part of the job: working out what people need, running the project, designing the screens, writing the code and testing it. I'm no artist, but I care a lot about whether a thing is easy to use.
+  - Lately I've been applying AI to real business processes and training teams to use it day to day. Now I do the same for local businesses.
   - You'll deal with the same person from the free call to the handover. No account managers, no hand-offs.
 
 ## SectionHeading + list
