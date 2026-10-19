@@ -92,9 +92,12 @@ def href(url):
     if url in URLS: return '#' + URLS[url]
     return '#missing'
 
+PHONE = '(585) 555-0100'  # placeholder from the 555-01xx fiction range; real number before launch
+
 def inline(t):
     t = html.escape(t, quote=False)
     t = re.sub(r'\[\[(OWNER|BUILD): (.*?)\]\]', lambda m: f'<mark class="rv rv--{m.group(1).lower()}"><b>{m.group(1).title()}:</b> {m.group(2)}</mark>', t)
+    t = t.replace(PHONE, f'<mark class="rv rv--build" title="Placeholder number">{PHONE}</mark>')
     t = re.sub(r'\[([^\]]+)\]\((/[^)]*)\)', lambda m: f'<a href="{href(m.group(2))}">{m.group(1)}</a>', t)
     t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
     t = re.sub(r'(?<![\w*])\*(?!\s)(.+?)\*(?!\w)', r'<em>\1</em>', t)
@@ -289,7 +292,7 @@ def header(page):
 
 def footer():
     return ('<footer class="th-footer"><div class="th-container"><div class="th-footer__grid">'
-            '<div><h2>Contact</h2><ul><li><mark class="rv rv--owner"><b>Owner:</b> phone</mark></li><li><a href="#book">hello@technehora.ai</a></li><li>Rochester, NY</li></ul></div>'
+            '<div><h2>Contact</h2><ul><li>' + inline(PHONE) + '</li><li><a href="#book">hello@technehora.ai</a></li><li>Rochester, NY</li></ul></div>'
             '<div><h2>Where we work</h2><ul><li><a href="#areas-rochester">Rochester &amp; Monroe County</a></li><li>Buffalo · Syracuse</li><li>Finger Lakes</li><li>Remote, anywhere</li></ul></div>'
             '<div><h2>Site</h2><ul><li><a href="#services">Training &amp; builds</a></li><li><a href="#industries">Who we help</a></li><li><a href="#faq">FAQ</a></li>'
             '<li><a href="#privacy">Privacy</a></li><li><a href="#accessibility">Accessibility</a></li></ul></div></div>'

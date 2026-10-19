@@ -57,16 +57,14 @@ Answered by the owner on 2026-10-18, and written into every page listed.
 | 2 | About bio | Jim (once "Slim"); grew up in Rochester; 25 years building software end to end; now applying AI to business processes and training teams. Employer not named | `about` |
 | 15 | Sample roadmap hours | Keep, labeled "Sample · not a client" | `audit`, `industries-hvac`, `industries-restaurants` |
 
-### Still open (blocks approval)
-| # | Item | Pages |
-|---|---|---|
-| 1 | Business phone number | `book`, `privacy`, `accessibility` (+ `CallBar`, footer, structured data) |
+### Placeholder until launch
+- **#1 Phone:** the pages use **(585) 555-0100**, a number from the 555-01xx range set aside for fiction, so it never reaches a real person. It appears on `book`, `privacy` and `accessibility`, plus the footer; `06_build` also needs it for the `CallBar` and structured data. The real number must replace it before launch: carry this into the launch checklist when `06_build`/`07_launch` are set up.
 
 ### Later, not blocking
 - **#3 Photo:** About launches with the rewind mark; swap in a photo of you at work when you have one.
 - **#16 Examples:** link `/examples` from the builds FAQ once 2+ real demos are live.
 
-Build items (`[[BUILD: …]]`, settled in `06_build`): booking tool, analytics tool, launch date (privacy page).
+Build items (`[[BUILD: …]]`, settled in `06_build`): booking tool, analytics tool, launch date (privacy page). The placeholder phone number shows blue in the preview too.
 
 ## Small humor, on purpose
 Light touches the owner may keep or cut: the 404 ("This page took the day off."), restaurants ("The phone always rings at 6:45."), the pronunciation line on About, "We've seen a desk." and the garbage-plate nod on Rochester ("You don't even have to buy us a plate."), "Will a robot be answering my phone? No robots." in the FAQ.

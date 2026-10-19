@@ -42,7 +42,7 @@ A plain-language draft, not legal advice. The tools named follow the sitemap's r
 ## SectionHeading + text
 - **H2:** Questions
 - **Paragraphs:**
-  - Email hello@technehora.ai or call [[OWNER: business phone number]]. Techne Hora is a service of Web Redesigned, based in Rochester, NY.
+  - Email hello@technehora.ai or call (585) 555-0100. Techne Hora is a service of Web Redesigned, based in Rochester, NY.
 
 ## CTABand (small)
 - **H2:** Ready when you are.

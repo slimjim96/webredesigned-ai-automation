@@ -36,7 +36,7 @@ No `CTABand` and no `CallBar` on this page: booking is the only thing to do here
 - **Failure message:** That didn't send. Please call or email us instead; the details are below.
 
 ## Other ways to reach us
-- **Phone:** [[OWNER: business phone number]]
+- **Phone:** (585) 555-0100
 - **Email:** hello@technehora.ai
 - **Based in:** Rochester, NY
 
