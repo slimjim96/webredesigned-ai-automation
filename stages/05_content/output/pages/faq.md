@@ -32,7 +32,7 @@ FAQPage markup optional (sitemap: no rich results since 2023). Questions here ma
 1. **What do I get for $750?**
    A 90-minute session, on-site in Western NY or by video, then a written roadmap of your top 5 fixes with estimated hours saved, rough cost and difficulty, and a 30-minute walkthrough.
 2. **What if you don't find anything worth fixing?**
-   Then the roadmap says so, and tells you what isn't worth automating yet. That's worth knowing before you spend money on software. [[OWNER: refund or partial credit policy, same as `audit.md`]]
+   Then the roadmap says so, and tells you what isn't worth automating yet. That's worth knowing before you spend money on software. And you get your $750 back.
 3. **Do I have to hire you afterward?**
    No. The roadmap is yours. If you book training or a build within 30 days, the $750 is credited toward it.
 
@@ -48,7 +48,7 @@ FAQPage markup optional (sitemap: no rich results since 2023). Questions here ma
 - **SectionHeading H2:** Builds
 
 1. **Who owns what you build?**
-   You do. [[OWNER: same answer as `services-custom-builds.md`]]
+   You do. It's set up in your accounts and billed to you. At handover you get every login, and we remove our own access.
 2. **Will a robot be answering my phone?**
    No robots. A missed caller might get an automatic text with a way to book, and it says it's automatic. Real conversations stay with real people.
 
@@ -60,7 +60,7 @@ FAQPage markup optional (sitemap: no rich results since 2023). Questions here ma
 2. **Do I have to buy new software?**
    Not to start. The roadmap begins with the tools you already pay for. If something new would pay for itself, it says what, roughly what it costs, and why.
 3. **What happens to my data?**
-   [[OWNER: plain answer: what you look at, what you keep, where it's stored, who else sees it, and how to ask you to delete it]]
+   We look at your tools with you, on your screen. We don't take copies of your customer data, and we never sell or share anything. We keep our notes and your roadmap, and delete them when you ask, or 12 months after the work ends. To ask, email hello@technehora.ai.
 4. **Will AI replace my staff?**
    That's not the goal. The goal is to take the repetitive work off their plate so they can do the parts that need a person.
 

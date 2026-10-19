@@ -61,7 +61,7 @@ Who we help → Restaurants
 - **SectionHeading H2:** Questions from restaurant owners
 
 1. **Will this work with my POS or reservation system?**
-   Often, yes. The audit starts with what you already pay for and checks what it can do. [[OWNER: name only the POS and reservation tools you've actually worked with, or keep this general]]
+   Often, yes. The audit starts with what you already pay for and checks what it can do: your POS, your reservation system, your phone and Google.
 2. **Will guests know they're talking to a machine?**
    They should, and they will. Anything automatic says so, and a real person is always one step away.
 3. **When can you visit?**

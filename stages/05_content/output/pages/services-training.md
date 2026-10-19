@@ -31,12 +31,12 @@ Training & builds → Workshops & team training
 
 ## SectionHeading + list
 - **H2:** Formats
-- **Lede:** Chosen from your roadmap, sized to your team.
+- **Lede:** Pick what fits your team. The roadmap usually points to one.
 - **List:**
   - **Half-day on-site session** for the owner and the people who run the office or the floor
-  - **Remote sessions** in shorter blocks, for teams that can't all be in one room
-  - **Follow-up office hours** a few weeks later, once the questions are real
-- **Owner note:** [[OWNER: confirm the formats you'll offer and any you won't]]
+  - **Owner 1-on-1:** one or two sessions with just you, in person or by video
+  - **Short team sessions** of 60 to 90 minutes, one task each, for teams that can't all be in one room
+  - **Group classes:** a few local businesses in one room, learning the basics together
 
 ## Steps
 - **SectionHeading H2:** How training works
@@ -59,7 +59,7 @@ Training & builds → Workshops & team training
 3. **Can we do it without the audit?**
    Talk to us on the free call. If you already know exactly what you need, we can skip ahead. Usually the audit saves you from training on the wrong thing.
 4. **Is our information safe in these tools?**
-   Part of every session is what not to paste in, and which settings to check. [[OWNER: confirm the data guidance you give in training]]
+   Part of every session is what not to paste in, and which settings to check. When we work in your tools, we look with you, on your screen, and don't take copies of your data.
 
 ## CTABand
 - **H2:** Make the software earn its keep.

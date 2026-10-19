@@ -30,7 +30,7 @@ search: (none)
 ## SectionHeading + text
 - **H2:** Tell us
 - **Paragraphs:**
-  - Email hello@technehora.ai or call [[OWNER: business phone number]]. Tell us the page and what went wrong. [[OWNER: response time, e.g. within 2 business days]]
+  - Email hello@technehora.ai or call [[OWNER: business phone number]]. Tell us the page and what went wrong. We reply within 2 business days.
 
 ## CTABand (small)
 - **H2:** Ready when you are.

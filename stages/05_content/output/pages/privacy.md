@@ -32,12 +32,12 @@ A plain-language draft, not legal advice. The tools named follow the sitemap's r
 ## SectionHeading + text
 - **H2:** If you become a client
 - **Paragraphs:**
-  - During an audit or a build we may see how your business runs, including tools that hold your customers' information. [[OWNER: what you look at, what you keep, how long, and how it's deleted when the work ends]]
+  - During an audit or a build we may see how your business runs, including tools that hold your customers' information. We look at those tools with you, on your screen, and don't take copies of the data in them. Anything we build is set up in your own accounts. We keep only our notes and your roadmap, and delete them when you ask, or 12 months after the work ends.
 
 ## SectionHeading + text
 - **H2:** Your choices
 - **Paragraphs:**
-  - Want to see what we have about you, correct it, or have it deleted? Email hello@technehora.ai and we'll take care of it. [[OWNER: response time, e.g. within 30 days]]
+  - Want to see what we have about you, correct it, or have it deleted? Email hello@technehora.ai and we'll take care of it. We reply within 2 business days and finish within 30 days.
 
 ## SectionHeading + text
 - **H2:** Questions

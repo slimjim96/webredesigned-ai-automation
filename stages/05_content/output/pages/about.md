@@ -13,7 +13,7 @@ search: Techne Hora; AI consultant Rochester about
 - **H1:** We teach. We build. Then we get out of your way.
 - **Lede:** Techne Hora is a one-person AI practice in Rochester, NY. The goal of every job is the same: you end up with more hours in your week and a team that can keep it that way without us.
 - **Primary button:** Book a free 20-minute call → `/book`
-- **Art:** [[OWNER: photo of you, at work, not in a suit. Until then, the rewind mark]]
+- **Art:** the rewind mark, until there's a photo of you at work (not in a suit)
 
 ## SectionHeading + text
 - **H2:** Why the name
@@ -42,11 +42,6 @@ search: Techne Hora; AI consultant Rochester about
   - **Rochester and Monroe County:** home base. See [Rochester](/areas/rochester).
   - **Buffalo, Syracuse and the Finger Lakes:** on-site visits for the audit and training.
   - **Anywhere else:** by video.
-
-## SectionHeading + text
-- **H2:** Part of Web Redesigned
-- **Paragraphs:**
-  - Techne Hora is a service of Web Redesigned. [[OWNER: one sentence on what Web Redesigned is, if you want it here]]
 
 ## CTABand
 - **H2:** Let's see if we're a fit.

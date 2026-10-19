@@ -20,7 +20,7 @@ search: AI audit small business; AI assessment Rochester
 
 1. **Talk for 20 minutes.** A free call to see if we're a fit. If we don't think we can save you real time, we'll say so.
 2. **Spend 90 minutes with us.** On-site in Western NY or by video. We watch how calls, quotes, scheduling and paperwork actually move through your week.
-3. **Get your written roadmap.** Your top 5 fixes, each with estimated hours saved, rough cost and difficulty. [[OWNER: how soon after the session it arrives, e.g. "within 5 business days"]]
+3. **Get your written roadmap.** Your top 5 fixes, each with estimated hours saved, rough cost and difficulty. It arrives within 2 business days of the session.
 4. **Walk through it together.** A 30-minute call to go over the roadmap, answer questions and agree on what to do first.
 
 ## SectionHeading + RoadmapTable
@@ -60,13 +60,13 @@ search: AI audit small business; AI assessment Rochester
 - **SectionHeading H2:** Questions about the audit
 
 1. **What if you don't find anything worth fixing?**
-   Then the roadmap says so, and tells you what isn't worth automating yet. That's worth knowing before you spend money on software. [[OWNER: decide whether to offer a refund or partial credit in this case]]
+   Then the roadmap says so, and tells you what isn't worth automating yet. That's worth knowing before you spend money on software. And you get your $750 back.
 2. **On-site or video: which is better?**
    On-site is best when the work happens in a shop, truck or kitchen and we need to see it. Video works well for office-heavy businesses. Same price either way within Western NY.
 3. **What should I have ready?**
    A rough sense of where your week goes, and a list of the software you use (or logins we can look at with you). That's it.
 4. **Who sees my information?**
-   [[OWNER: plain answer on what you look at, what you keep, and who else sees it]]
+   You and us, nobody else. We look at your tools with you, on your screen, and don't take copies of your customer data. We keep our notes and your roadmap. We delete them when you ask, or 12 months after the work ends.
 5. **Do I have to buy the training or a build afterward?**
    No. The roadmap is yours. Some owners do the fixes themselves. If you hire us within 30 days, the $750 is credited.
 

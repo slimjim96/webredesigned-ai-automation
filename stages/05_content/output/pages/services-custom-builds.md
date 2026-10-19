@@ -46,13 +46,13 @@ Training & builds → Custom skills & builds
 - **SectionHeading H2:** Questions about builds
 
 1. **Who owns what you build?**
-   You do. [[OWNER: confirm ownership and what happens to accounts and logins at handover]]
+   You do. It's set up in your accounts and billed to you. At handover you get every login, and we remove our own access. No lock-in.
 2. **What if it breaks?**
-   We build it so your team can handle the small stuff, and we explain what to do if something stops. [[OWNER: describe any support or maintenance you offer after handover]]
+   We build it so your team can handle the small stuff, and we explain what to do if something stops. Fixes for the first 30 days are included. After that, choose an optional monthly plan or pay per fix.
 3. **Will I need new monthly subscriptions?**
    Sometimes one, often none. The roadmap lists any running costs before anything is built, so there are no surprises on your card statement.
 4. **Can you show me something you've built?**
-   On the free call, yes. [[OWNER: link `/examples` here once 2+ real demos are live]]
+   On the free call, yes.
 
 ## CTABand
 - **H2:** Let the chores run themselves.

@@ -50,7 +50,7 @@ Who we help → HVAC, plumbing & electrical
 - **SectionHeading H2:** Questions from trades owners
 
 1. **Will this work with the software I already use?**
-   Often, yes. The audit starts with what you already pay for and checks what it can do. [[OWNER: name only the field-service tools you've actually worked with, e.g. ServiceTitan, Housecall Pro, Jobber, or leave this general]]
+   Often, yes. The audit starts with what you already pay for and checks what it can do: your scheduling software, your phone, your email and Google.
 2. **Will my customers know they're texting a machine?**
    They should. Anything automatic says so, and a real person, you or your office, is always one reply away.
 3. **I'm slammed in summer and winter. When's a good time?**

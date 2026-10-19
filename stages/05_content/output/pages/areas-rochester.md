@@ -23,7 +23,7 @@ Where we work → Rochester & Monroe County
 - **H2:** On-site in Rochester
 - **Lede:** Home base for Techne Hora, and where most visits happen.
 - **List:**
-  - **Where we visit:** the city and every town around it: Greece, Gates, Chili, Henrietta, Brighton, Pittsford, Perinton and Fairport, Penfield, Webster, Irondequoit, Spencerport and Brockport. [[OWNER: confirm the area you'll drive to without a travel fee]]
+  - **Where we visit:** the city and every town around it: Greece, Gates, Chili, Henrietta, Brighton, Pittsford, Perinton and Fairport, Penfield, Webster, Irondequoit, Spencerport and Brockport. No travel fee, here or anywhere in Western NY.
   - **How a visit works:** the 90-minute audit session happens where the work happens: your shop, your office, your kitchen between lunch and dinner. You don't have to clean up first. We've seen a desk.
   - **Built for our winters:** when lake-effect snow wipes out half a week of appointments, rescheduling becomes a job of its own. For trades and service businesses here, that's often the first thing on the roadmap.
   - **Busy seasons we plan around:** furnace calls from the first cold snap, AC calls in July, and patio season for restaurants. We schedule around yours, not ours.
@@ -43,7 +43,7 @@ Where we work → Rochester & Monroe County
 - **SectionHeading H2:** Questions from Rochester owners
 
 1. **Do you charge for travel in Monroe County?**
-   [[OWNER: answer, e.g. "No. Anywhere in Monroe County is included."]]
+   No. There's no travel fee anywhere in Western NY.
 2. **Can we meet somewhere other than my business?**
    Sure, but the audit works best where the work happens. Coffee is fine for the free call. You don't even have to buy us a plate.
 3. **Do you work outside Rochester?**
@@ -51,6 +51,5 @@ Where we work → Rochester & Monroe County
 
 ## CTABand
 - **H2:** Rochester owners, get your hours back.
-- **Line:** Start with a free 20-minute call. We can be at your door the week after.
+- **Line:** Start with a free 20-minute call. We can be at your door soon after.
 - **Button:** Book a free 20-minute call → `/book`
-- **Owner note:** [[OWNER: confirm "the week after" or soften to "soon after"]]

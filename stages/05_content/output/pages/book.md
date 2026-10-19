@@ -21,7 +21,7 @@ No `CTABand` and no `CallBar` on this page: booking is the only thing to do here
 
 ## Fallback form (FormField)
 - **H2:** Rather not pick a time?
-- **Line:** Send us a note and we'll call or email you within one business day. [[OWNER: confirm "within one business day"]]
+- **Line:** Send us a note and we'll call or email you within one business day.
 
 | Field | Label | Hint | Required | Error |
 |---|---|---|---|---|
