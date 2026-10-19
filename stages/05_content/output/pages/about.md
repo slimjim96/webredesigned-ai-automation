@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /about
 title: About Techne Hora · Rochester, NY
 description: Techne Hora is a Rochester AI consultancy that trains your team and builds tools around how you work, instead of installing software and leaving.

@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /industries
 title: Who we help · Techne Hora
 description: AI help for HVAC, plumbing and electrical companies, restaurants, and other local businesses in Rochester and Western NY. Is this you?

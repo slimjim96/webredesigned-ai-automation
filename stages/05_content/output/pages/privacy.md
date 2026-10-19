@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /privacy
 title: Privacy · Techne Hora
 description: What this website collects, why, who sees it, and how to ask us to delete it. In plain language.

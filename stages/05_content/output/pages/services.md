@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /services
 title: Training & builds · Techne Hora
 description: How the work fits together: a $750 audit to find what's worth fixing, then training for your team or custom tools built around how you work.

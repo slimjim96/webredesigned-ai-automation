@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /industries/hvac
 title: AI help for HVAC, plumbing & electrical · Techne Hora
 description: Missed calls, quotes written at 10pm, invoices to chase. We find the fixes that give trades owners their evenings back. Rochester & Western NY.

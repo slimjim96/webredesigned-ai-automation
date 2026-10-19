@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /services/custom-builds
 title: Custom AI tools & builds for small business · Techne Hora
 description: Missed-call text-backs, quote drafts, intake forms and follow-ups, built around how your business runs and handed over so your team can run them.

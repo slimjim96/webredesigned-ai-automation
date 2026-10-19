@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /book
 title: Book a free 20-minute call · Techne Hora
 description: Pick a time for a free 20-minute call. Tell us what eats your week, and we'll tell you honestly whether we can help.

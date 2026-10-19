@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /faq
 title: Questions owners ask · Techne Hora
 description: Answers about the free call, the $750 AI audit, training, custom builds, cost and what happens to your data. Plain answers, no jargon.

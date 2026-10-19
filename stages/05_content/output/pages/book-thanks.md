@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /book/thanks
 title: You're booked · Techne Hora
 description: Your free 20-minute call is booked.

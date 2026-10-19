@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /industries/restaurants
 title: AI help for restaurants · Techne Hora
 description: Phone orders mid-rush, staff schedules, supplier orders and reviews. We find the fixes that give restaurant owners hours back. Rochester & WNY.

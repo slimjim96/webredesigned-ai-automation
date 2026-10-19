@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /accessibility
 title: Accessibility · Techne Hora
 description: How this website is built to work for everyone, and how to tell us if something doesn't work for you.

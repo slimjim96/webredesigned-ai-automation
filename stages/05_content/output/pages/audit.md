@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /audit
 title: The $750 AI audit · Techne Hora
 description: A 90-minute session and a written roadmap: the 5 changes that save your business the most hours, in order, with rough costs. $750, credited to the work.

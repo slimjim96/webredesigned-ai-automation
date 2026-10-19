@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /services/training
 title: AI workshops & team training · Techne Hora
 description: Hands-on training on tools like Claude and Copilot, using your own estimates, emails and schedules. On-site in Rochester & Western NY or remote.

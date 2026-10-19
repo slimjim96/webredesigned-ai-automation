@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 updated: 2026-10-18
 ---
 
@@ -13,23 +13,23 @@ Every page in the approved sitemap, its copy file, and its status. The stage is 
 
 | Page | URL | File | Status |
 |---|---|---|---|
-| Home | `/` | `pages/home.md` | draft |
-| The AI audit | `/audit` | `pages/audit.md` | draft |
-| Training & builds | `/services` | `pages/services.md` | draft |
-| Workshops & team training | `/services/training` | `pages/services-training.md` | draft |
-| Custom skills & builds | `/services/custom-builds` | `pages/services-custom-builds.md` | draft |
-| Who we help | `/industries` | `pages/industries.md` | draft |
-| HVAC, plumbing & electrical | `/industries/hvac` | `pages/industries-hvac.md` | draft |
-| Restaurants | `/industries/restaurants` | `pages/industries-restaurants.md` | draft |
-| Other local businesses | `/industries/local-services` | `pages/industries-local-services.md` | draft (placeholder until the third vertical) |
-| Rochester & Monroe County | `/areas/rochester` | `pages/areas-rochester.md` | draft (local block: 169 words, rule is 150+) |
-| About | `/about` | `pages/about.md` | draft |
-| FAQ | `/faq` | `pages/faq.md` | draft |
-| Book a call | `/book` | `pages/book.md` | draft |
-| You're booked | `/book/thanks` | `pages/book-thanks.md` | draft |
-| Privacy | `/privacy` | `pages/privacy.md` | draft (owner review; not legal advice) |
-| Accessibility | `/accessibility` | `pages/accessibility.md` | draft |
-| 404 | (any missing page) | `pages/404.md` | draft |
+| Home | `/` | `pages/home.md` | approved |
+| The AI audit | `/audit` | `pages/audit.md` | approved |
+| Training & builds | `/services` | `pages/services.md` | approved |
+| Workshops & team training | `/services/training` | `pages/services-training.md` | approved |
+| Custom skills & builds | `/services/custom-builds` | `pages/services-custom-builds.md` | approved |
+| Who we help | `/industries` | `pages/industries.md` | approved |
+| HVAC, plumbing & electrical | `/industries/hvac` | `pages/industries-hvac.md` | approved |
+| Restaurants | `/industries/restaurants` | `pages/industries-restaurants.md` | approved |
+| Other local businesses | `/industries/local-services` | `pages/industries-local-services.md` | approved (placeholder until the third vertical) |
+| Rochester & Monroe County | `/areas/rochester` | `pages/areas-rochester.md` | approved (local block: 169 words, rule is 150+) |
+| About | `/about` | `pages/about.md` | approved |
+| FAQ | `/faq` | `pages/faq.md` | approved |
+| Book a call | `/book` | `pages/book.md` | approved |
+| You're booked | `/book/thanks` | `pages/book-thanks.md` | approved |
+| Privacy | `/privacy` | `pages/privacy.md` | approved (owner review; not legal advice) |
+| Accessibility | `/accessibility` | `pages/accessibility.md` | approved |
+| 404 | (any missing page) | `pages/404.md` | approved |
 | Later, when ready: Examples, Buffalo, Syracuse, Finger Lakes | | | not started (sitemap: only when content is real) |
 
 ## Where the copy differs from the sitemap

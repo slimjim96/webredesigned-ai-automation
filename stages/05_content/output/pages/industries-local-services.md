@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /industries/local-services
 title: AI help for local service businesses · Techne Hora
 description: For local businesses where calls, scheduling and paperwork eat the week. We find the 5 fixes that give you the most hours back. Rochester & WNY.

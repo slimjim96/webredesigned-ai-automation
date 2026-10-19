@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /areas/rochester
 title: AI consultant in Rochester, NY · Techne Hora
 description: Rochester-based AI help for trades, restaurants and local businesses across Monroe County. On-site visits from Greece to Webster to Henrietta.
