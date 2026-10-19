@@ -23,7 +23,7 @@ updated: 2026-10-18
 ├── /areas/buffalo        Buffalo                         (when ready)
 ├── /areas/syracuse       Syracuse                        (when ready)
 ├── /areas/finger-lakes   Finger Lakes                    (when ready)
-├── /about                About (the owner, how we work, "by Web Redesigned")
+├── /about                About (the owner, how we work)
 ├── /examples             Examples of our builds          (launches only with 2+ real demos)
 ├── /faq                  Questions owners ask
 ├── /book                 Book a free 20-minute call
@@ -33,7 +33,7 @@ updated: 2026-10-18
 ```
 
 **Header nav (4 links + button):** The audit · Training & builds · Who we help · About · [Book a call]
-**Footer:** Contact (phone, email, Rochester NY) · Where we work (the area pages that are live, the other regions as plain text, + "Remote, anywhere") · Site (Services, Industries, Examples, FAQ, Privacy, Accessibility) · "© Techne Hora, by Web Redesigned"
+**Footer:** Contact (phone, email, Rochester NY) · Where we work (the area pages that are live, the other regions as plain text, + "Remote, anywhere") · Site (Services, Industries, Examples, FAQ, Privacy, Accessibility) · "© Techne Hora" (owner dropped "by Web Redesigned", 2026-10-18)
 **Phones:** `CallBar` on every page except `/book`, with "Call" and "Book a call".
 
 ## Pages
@@ -112,7 +112,7 @@ updated: 2026-10-18
 
 ### About `/about`
 - **For:** the owner checking who they'd be letting into their business.
-- **Sections:** `Hero` (photo of the owner when available, else the mark) · the story and why the name (the Techne/Hora line from the brand spec) · how we work (train, don't just install) · background (TODO: years, roles, wording owner is comfortable with) · where we work (links to area pages) · "Techne Hora is a service of Web Redesigned" · `CTABand`
+- **Sections:** `Hero` (photo of the owner when available, else the mark) · the story and why the name (the Techne/Hora line from the brand spec) · how we work (train, don't just install) · background (TODO: years, roles, wording owner is comfortable with) · where we work (links to area pages) · `CTABand` (the Web Redesigned line was dropped by the owner, 2026-10-18)
 
 ### Examples `/examples` (launch only with 2+ real demos)
 - Real things the owner built: e.g. the employee and client directory (described generically, no employer name or data unless cleared), 2–3 GitHub projects (TODO: pick). Each as a `ServiceCard`: the problem, what was built, the hours or errors it saved (real numbers only).

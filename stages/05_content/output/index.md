@@ -52,7 +52,7 @@ Answered by the owner on 2026-10-18, and written into every page listed.
 | 11 | Workshop formats | Half-day on-site, owner 1-on-1, short team sessions, group classes | `services-training` |
 | 12 | Named software | None; kept general | `industries-hvac`, `industries-restaurants` |
 | 13 | Travel | No travel fee anywhere in Western NY; "at your door soon after" (softened from "the week after") | `areas-rochester` |
-| 14 | Web Redesigned on About | Left out (still named as the operator on `privacy`) | `about` |
+| 14 | Web Redesigned on About and in the footer | Left out of both (still named as the operator on `privacy`) | `about`, footer |
 | 15 | Sample roadmap hours | Keep, labeled "Sample · not a client" | `audit`, `industries-hvac`, `industries-restaurants` |
 
 ### Still open (these block approval)

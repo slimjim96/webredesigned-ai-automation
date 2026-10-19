@@ -294,7 +294,7 @@ def footer():
             '<div><h2>Site</h2><ul><li><a href="#services">Training &amp; builds</a></li><li><a href="#industries">Who we help</a></li><li><a href="#faq">FAQ</a></li>'
             '<li><a href="#privacy">Privacy</a></li><li><a href="#accessibility">Accessibility</a></li></ul></div></div>'
             '<div class="th-footer__base"><span class="th-footer__brand"><img src="technehora-lockup-horizontal-dark.svg" alt="Techne Hora" height="48"></span>'
-            '<span>© 2026 Techne Hora, by Web Redesigned</span></div></div></footer>')
+            '<span>© 2026 Techne Hora</span></div></div></footer>')
 
 CALLBAR = '<div class="th-callbar"><a class="th-btn th-btn--secondary" href="#call">Call</a><a class="th-btn th-btn--primary" href="#book">Book a call</a></div>'
 
