@@ -34,6 +34,7 @@ Every page in the approved sitemap, its copy file, and its status. The stage is 
 
 ## Where the copy differs from the sitemap
 - `/services` shows **3** cards (audit, training, builds), not 2: the design system's ServiceCard rule says "never 2 lonely cards".
+- `/about` bio is in first person ("I'm Jim") while the rest of the site says "we": owner's choice, 2026-10-18. Keep it.
 - `/services/custom-builds` cards have no links: each describes a kind of build, and there's no page per build yet.
 - `/industries` "Which one sounds like you?" blocks are ServiceCards whose text is a 3-item problem list.
 
