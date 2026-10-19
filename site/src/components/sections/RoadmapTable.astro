@@ -1,0 +1,28 @@
+---
+// Sample roadmap. A section without its own table ("Same table and note as /audit") borrows the audit's.
+import { inline } from '../../lib/inline';
+import { sharedRoadmap, type Section } from '../../lib/content';
+
+interface Props { s: Section }
+const { s } = Astro.props;
+const rows = s.tables[0] ?? sharedRoadmap.tables[0];
+const caption = s.fields['Caption'] ?? sharedRoadmap.fields['Caption'];
+const note = s.tables[0] ? s.fields['Note under table'] : sharedRoadmap.fields['Note under table'];
+const [header, ...body] = rows;
+const isTotal = (r: string[]) => r[0].startsWith('**Total');
+const total = body.filter(isTotal).map((r) => r.map((c) => c.replace(/\*\*/g, '')));
+const rest = body.filter((r) => !isTotal(r));
+---
+<div class="th-table-wrap">
+  <table class="th-table th-table--stack">
+    <caption set:html={inline(caption)} />
+    <thead><tr>{header.map((h, i) => <th scope="col" class={i === 1 ? 'num' : undefined} set:html={inline(h)} />)}</tr></thead>
+    <tbody>
+      {rest.map((r) => <tr>{r.map((c, i) => <td class={i === 1 ? 'num' : undefined} data-label={i > 0 ? header[i] : undefined} set:html={inline(c)} />)}</tr>)}
+    </tbody>
+    {total.length > 0 && (
+      <tfoot>{total.map((r) => <tr>{r.map((c, i) => <td class={i === 1 ? 'num' : undefined} data-label={c && i > 0 ? header[i] : undefined} set:html={inline(c)} />)}</tr>)}</tfoot>
+    )}
+  </table>
+</div>
+{note && <p class="th-after th-small" set:html={inline(note)} />}

@@ -1,0 +1,13 @@
+---
+import { inline } from '../../lib/inline';
+import { icon } from '../../lib/icons';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const { s } = Astro.props;
+const plain = s.kind.includes('(plain)');
+---
+<div class:list={['th-callout', { 'th-callout--plain': plain }]}>
+  <Fragment set:html={icon('info')} />
+  <p><strong set:html={inline(s.fields['Bold start'])} /> <Fragment set:html={inline(s.fields['Rest'])} /></p>
+</div>

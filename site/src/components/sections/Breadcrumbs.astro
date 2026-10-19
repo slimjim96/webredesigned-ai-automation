@@ -1,0 +1,17 @@
+---
+// Sitemap gap component: "Parent → This page" on child pages. A parent with no page of its own is plain text.
+import { inline } from '../../lib/inline';
+import { urls, type Page, type Section } from '../../lib/content';
+
+interface Props { s: Section; page: Page }
+const { s, page } = Astro.props;
+const [parentLabel, currentLabel] = s.text[0].split('→').map((t) => t.trim());
+const parentUrl = '/' + page.url.split('/')[1];
+const linked = urls.has(parentUrl);
+---
+<nav class="th-crumbs th-container" aria-label="Breadcrumb">
+  <ol>
+    <li>{linked ? <a href={parentUrl} set:html={inline(parentLabel)} /> : <span set:html={inline(parentLabel)} />}</li>
+    <li><span aria-current="page" set:html={inline(currentLabel)} /></li>
+  </ol>
+</nav>

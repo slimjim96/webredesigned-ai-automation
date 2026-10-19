@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageBody from '../components/PageBody.astro';
+import { pages } from '../lib/content';
+
+const page = pages.find((p) => p.slug === '404')!;
+---
+<Layout page={page}>
+  <PageBody page={page} />
+</Layout>

@@ -1,0 +1,26 @@
+---
+// The audit card. Pages that say "Same card as Home" borrow Home's fields.
+import { action, inline } from '../../lib/inline';
+import { icon } from '../../lib/icons';
+import { sharedPrice, type Section } from '../../lib/content';
+
+interface Props { s: Section }
+const { s } = Astro.props;
+const src = s.fields['Price'] ? s : sharedPrice;
+const f = src.fields;
+const button = action(f['Button']);
+---
+<div class="th-price">
+  <div class="th-price__head">
+    <h3 class="text-h3" set:html={inline(f['Name'])} />
+    <span class="th-price__unit">Fixed price</span>
+  </div>
+  <div class="th-price__amount" set:html={inline(f['Price'])} />
+  {f['One line'] && <p set:html={inline(f['One line'])} />}
+  <ul class="th-price__list">
+    {(src.lists['Included'] ?? []).map((x) => <li><Fragment set:html={icon('check')} /><span set:html={inline(x)} /></li>)}
+  </ul>
+  <p class="th-price__credit" set:html={inline(f['Credit note'])} />
+  <a class="th-btn th-btn--primary th-btn--block" href={button.href} set:html={inline(button.label)} />
+  {f['Small print under button'] && <p class="th-small" set:html={inline(f['Small print under button'])} />}
+</div>

@@ -1,0 +1,34 @@
+---
+import { action, inline } from '../../lib/inline';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const { s } = Astro.props;
+const f = s.fields;
+const primary = f['Primary button'] && action(f['Primary button']);
+const quiet = f['Quiet link'] && action(f['Quiet link']);
+const art = Boolean(f['Art']) && !s.kind.includes('(no art)');
+---
+<section class="th-hero">
+  <div class="th-container">
+    <div class="th-hero__grid">
+      <div class="th-hero__copy">
+        {f['Eyebrow'] && <span class="th-eyebrow" set:html={inline(f['Eyebrow'])} />}
+        <h1 class="text-display" set:html={inline(f['H1'])} />
+        {f['Lede'] && <p class="text-lede" set:html={inline(f['Lede'])} />}
+        {(primary || quiet) && (
+          <div class="th-hero__actions">
+            {primary && <a class="th-btn th-btn--primary" href={primary.href} set:html={inline(primary.label)} />}
+            {quiet && <a class="th-btn th-btn--quiet" href={quiet.href} set:html={inline(quiet.label)} />}
+          </div>
+        )}
+        {f['Note'] && <p class="th-hero__note" set:html={inline(f['Note'])} />}
+      </div>
+      {art && (
+        <div class="th-hero__art">
+          <img src="/logo/technehora-rewind.svg" alt="" width="320" height="320" fetchpriority="high">
+        </div>
+      )}
+    </div>
+  </div>
+</section>

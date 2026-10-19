@@ -1,0 +1,18 @@
+---
+// Eyebrow, heading and lede from a section's fields (H1, "H1 (styled as H2)", H2 or "SectionHeading H2").
+import { inline } from '../../lib/inline';
+
+interface Props { fields: Record<string, string>; fallback?: string }
+const { fields: f, fallback } = Astro.props;
+const h1 = f['H1'] ?? f['H1 (styled as H2)'];
+const h2 = f['H2'] ?? f['SectionHeading H2'] ?? fallback;
+const any = f['Eyebrow'] || h1 || h2 || f['Lede'];
+---
+{any && (
+  <div class="th-section-head">
+    {f['Eyebrow'] && <span class="th-eyebrow" set:html={inline(f['Eyebrow'])} />}
+    {h1 ? <h1 class={'H1 (styled as H2)' in f ? 'text-h2' : 'text-display'} set:html={inline(h1)} />
+        : h2 && <h2 class="text-h2" set:html={inline(h2)} />}
+    {f['Lede'] && <p class="text-lede" set:html={inline(f['Lede'])} />}
+  </div>
+)}

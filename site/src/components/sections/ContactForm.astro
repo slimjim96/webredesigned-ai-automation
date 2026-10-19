@@ -1,0 +1,106 @@
+---
+// The fallback form on /book: fields, hints and error text come from the copy's table.
+// Sends to the Pages Function at /api/contact (functions/api/contact.js).
+import { inline, plain } from '../../lib/inline';
+import { TURNSTILE_SITE_KEY } from '../../site.config';
+import { icon } from '../../lib/icons';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const { s } = Astro.props;
+const f = s.fields;
+const [header, ...rows] = s.tables[0];
+const keys = header.map((h) => h.toLowerCase());
+const fields = rows.map((r) => Object.fromEntries(keys.map((k, i) => [k, r[i] ?? ''])));
+const AUTOCOMPLETE: Record<string, string> = { name: 'name', business: 'organization', contact: 'on' };
+---
+<form class="th-form" id="contact-form" action="/api/contact" method="post" novalidate
+  data-sending={plain(f['Sending state'])} data-success={plain(f['Success message'])} data-failure={plain(f['Failure message'])}>
+  {fields.map((d) => {
+    const id = `f-${d.field}`;
+    const required = d.required === 'yes';
+    const describedBy = [d.hint && `${id}-hint`, d.error && `${id}-error`].filter(Boolean).join(' ') || undefined;
+    return (
+      <div class="th-field">
+        <label for={id}><Fragment set:html={inline(d.label)} />{!required && <span class="th-optional"> (optional)</span>}</label>
+        {d.hint && <span class="th-field__hint" id={`${id}-hint`} set:html={inline(d.hint)} />}
+        {d.field === 'question'
+          ? <textarea class="th-input" id={id} name={d.field} maxlength="2000" aria-describedby={describedBy}></textarea>
+          : <input class="th-input" id={id} name={d.field} type="text" maxlength="200" autocomplete={AUTOCOMPLETE[d.field]}
+              required={required} aria-describedby={describedBy} data-error={d.error ? plain(d.error) : undefined}>}
+        {d.error && <p class="th-field__error" id={`${id}-error`} hidden><Fragment set:html={icon('alert')} /><span></span></p>}
+      </div>
+    );
+  })}
+  <div class="th-honeypot" aria-hidden="true">
+    <label for="f-website">Leave this empty</label>
+    <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  {TURNSTILE_SITE_KEY && <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-theme="auto"></div>}
+  <div class="th-form__actions">
+    <button class="th-btn th-btn--primary" type="submit" set:html={inline(f['Button'] ?? 'Send')} />
+  </div>
+  <p class="th-form__status" role="status" aria-live="polite" hidden></p>
+</form>
+<noscript><p class="th-form__status is-error" set:html={inline(f['Failure message'])} /></noscript>
+{TURNSTILE_SITE_KEY && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('contact-form');
+    var status = form.querySelector('.th-form__status');
+    var button = form.querySelector('button[type="submit"]');
+    var label = button.innerHTML;
+    var CONTACT = /^(\+?1[\s.-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$|^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function setError(input, on) {
+      var field = input.closest('.th-field');
+      var err = field.querySelector('.th-field__error');
+      field.classList.toggle('th-field--error', on);
+      input.setAttribute('aria-invalid', on ? 'true' : 'false');
+      if (err) { err.hidden = !on; err.querySelector('span').textContent = on ? input.getAttribute('data-error') : ''; }
+    }
+    function invalid(input) {
+      var v = input.value.trim();
+      if (input.required && !v) return true;
+      return input.name === 'contact' && v !== '' && !CONTACT.test(v);
+    }
+    form.querySelectorAll('input[data-error]').forEach(function (input) {
+      input.addEventListener('blur', function () { if (input.closest('.th-field--error')) setError(input, invalid(input)); });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var first = null;
+      form.querySelectorAll('input[data-error]').forEach(function (input) {
+        var bad = invalid(input);
+        setError(input, bad);
+        if (bad && !first) first = input;
+      });
+      if (first) { first.focus(); return; }
+
+      button.disabled = true;
+      button.textContent = form.getAttribute('data-sending');
+      status.hidden = true;
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || r.status); }); })
+        .then(function () {
+          var done = document.createElement('p');
+          done.className = 'th-form__done';
+          done.setAttribute('role', 'status');
+          done.textContent = form.getAttribute('data-success');
+          form.replaceWith(done);
+          done.setAttribute('tabindex', '-1');
+          done.focus();
+        })
+        .catch(function () {
+          status.textContent = form.getAttribute('data-failure');
+          status.classList.add('is-error');
+          status.hidden = false;
+          button.disabled = false;
+          button.innerHTML = label;
+          if (window.turnstile) window.turnstile.reset();
+        });
+    });
+  })();
+</script>

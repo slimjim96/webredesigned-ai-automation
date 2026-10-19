@@ -1,0 +1,15 @@
+---
+import { inline } from '../../lib/inline';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const { items } = Astro.props.s;
+---
+<ol class="th-steps" data-count={items.length}>
+  {items.map((it) => (
+    <li>
+      <h3 class="text-h3" set:html={inline(it.title.replace(/\.$/, ''))} />
+      <p set:html={inline(`${it.rest} ${it.extra}`.trim())} />
+    </li>
+  ))}
+</ol>

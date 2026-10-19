@@ -1,0 +1,16 @@
+---
+// Sitemap gap component: a problem in bold, then one line of what changes.
+import { inline } from '../../lib/inline';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const [, ...rows] = Astro.props.s.tables[0];
+---
+<ul class="th-problems">
+  {rows.map(([problem, change]) => (
+    <li>
+      <p class="th-problems__problem" set:html={inline(problem.replace(/^\*\*|\*\*$/g, ''))} />
+      <p set:html={inline(change)} />
+    </li>
+  ))}
+</ul>

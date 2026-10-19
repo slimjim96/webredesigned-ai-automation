@@ -1,0 +1,53 @@
+---
+// Sitemap gap component: the Cal.com scheduler, with a loading state and the copy's fallback line
+// if it doesn't load within 12 seconds (or no event is configured). A finished booking goes to /book/thanks.
+import { inline } from '../../lib/inline';
+import { CAL_LINK } from '../../site.config';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const f = Astro.props.s.fields;
+---
+<div class="th-embed" data-cal-link={CAL_LINK}>
+  <p class="th-embed__label text-strong" set:html={inline(f['Label above the scheduler'])} />
+  <div class="th-embed__slot" id="cal-embed">
+    <div class="th-embed__loading" role="status">
+      <img src="/logo/technehora-rewind-spinner.svg" alt="" width="48" height="48">
+      <span set:html={inline(f['Loading state'])} />
+    </div>
+  </div>
+  <p class="th-embed__failed" role="alert" hidden>
+    <Fragment set:html={inline(f['If the scheduler fails to load'])} />
+    <a href="#contact-form">Go to the form</a>
+  </p>
+</div>
+
+<script is:inline>
+  (function () {
+    var box = document.querySelector('.th-embed');
+    var slot = box.querySelector('.th-embed__slot');
+    var link = box.getAttribute('data-cal-link');
+    var ready = false;
+    function fail() {
+      if (ready) return;
+      slot.hidden = true;
+      box.querySelector('.th-embed__failed').hidden = false;
+    }
+    if (!link) { fail(); return; }
+    var timer = setTimeout(fail, 12000);
+    // Cal.com's embed loader (from their docs), unchanged apart from the error handler.
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; var s = d.head.appendChild(d.createElement('script')); s.src = A; s.onerror = fail; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+    var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    Cal('init', { origin: 'https://cal.com' });
+    Cal('ui', { theme: dark ? 'dark' : 'light', styles: { branding: { brandColor: '#A63D2A' } }, layout: 'month_view', hideEventTypeDetails: false });
+    Cal('on', { action: 'linkReady', callback: function () {
+      ready = true; clearTimeout(timer);
+      var loading = slot.querySelector('.th-embed__loading');
+      if (loading) loading.remove();
+      slot.classList.add('is-ready');
+    } });
+    Cal('on', { action: 'linkFailed', callback: fail });
+    Cal('on', { action: 'bookingSuccessful', callback: function () { location.href = '/book/thanks'; } });
+    Cal('inline', { elementOrSelector: '#cal-embed', calLink: link, config: { layout: 'month_view' } });
+  })();
+</script>

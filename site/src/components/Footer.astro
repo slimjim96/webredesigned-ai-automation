@@ -1,0 +1,41 @@
+---
+import { EMAIL, PHONE, PHONE_TEL } from '../site.config';
+const year = new Date().getFullYear();
+---
+<footer class="th-footer">
+  <div class="th-container">
+    <div class="th-footer__grid">
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href={`tel:${PHONE_TEL}`}>{PHONE}</a></li>
+          <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+          <li>Rochester, NY</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Where we work</h2>
+        <ul>
+          <li><a href="/areas/rochester">Rochester &amp; Monroe County</a></li>
+          <li>Buffalo · Syracuse</li>
+          <li>Finger Lakes</li>
+          <li>Remote, anywhere</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/services">Training &amp; builds</a></li>
+          <li><a href="/industries">Who we help</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/accessibility">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="th-footer__base">
+      <span class="th-footer__brand"><img src="/logo/technehora-lockup-horizontal-dark.svg" alt="Techne Hora" width="159" height="48"></span>
+      <span>© {year} Techne Hora</span>
+    </div>
+  </div>
+</footer>

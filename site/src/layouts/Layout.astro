@@ -1,0 +1,75 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CallBar from '../components/CallBar.astro';
+import { AREA_SERVED, CF_BEACON_TOKEN, EMAIL, NAME, NOINDEX, PHONE_IS_PLACEHOLDER, PHONE_TEL, SITE_URL } from '../site.config';
+import { plain } from '../lib/inline';
+import type { Page } from '../lib/content';
+import '../styles/site.css';
+
+interface Props { page: Page; jsonLd?: object[] }
+const { page, jsonLd = [] } = Astro.props;
+const title = plain(page.meta.title);
+const description = plain(page.meta.description);
+const canonical = page.url ? SITE_URL + (page.url === '/' ? '/' : page.url) : '';
+const noindex = !page.url || NOINDEX.includes(page.url);
+const og = `${SITE_URL}/og/${page.slug}.png`;
+const isBook = page.url === '/book';
+
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${SITE_URL}/#business`,
+  name: NAME,
+  url: `${SITE_URL}/`,
+  email: EMAIL,
+  ...(PHONE_IS_PLACEHOLDER ? {} : { telephone: PHONE_TEL }),
+  logo: `${SITE_URL}/logo/technehora-mark-512.png`,
+  image: `${SITE_URL}/logo/technehora-mark-512.png`,
+  description: 'AI audits, team training and custom AI tools for small businesses in Rochester and Western NY.',
+  address: { '@type': 'PostalAddress', addressLocality: 'Rochester', addressRegion: 'NY', addressCountry: 'US' },
+  areaServed: AREA_SERVED,
+};
+const structured = [business, ...jsonLd];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    {canonical && <link rel="canonical" href={canonical}>}
+    {noindex && <meta name="robots" content="noindex">}
+    <meta name="theme-color" content="#FAF7F0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1B2A4A" media="(prefers-color-scheme: dark)">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content={NAME}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    {canonical && <meta property="og:url" content={canonical}>}
+    <meta property="og:image" content={og}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/css/fonts/IBMPlexSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/components.css">
+    {structured.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+  </head>
+  <body class="th-root" data-page={page.slug}>
+    <a class="th-skip" href="#main">Skip to content</a>
+    <Header url={page.url} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+    {!isBook && <CallBar />}
+    {CF_BEACON_TOKEN && (
+      <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: CF_BEACON_TOKEN })}></script>
+    )}
+  </body>
+</html>

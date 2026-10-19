@@ -1,0 +1,49 @@
+---
+// Every page in the sitemap, built from its 05_content page file.
+import Layout from '../layouts/Layout.astro';
+import PageBody from '../components/PageBody.astro';
+import { byUrl, pages, type Page } from '../lib/content';
+import { plain } from '../lib/inline';
+import { AREA_SERVED, SITE_URL } from '../site.config';
+
+export function getStaticPaths() {
+  return pages.filter((p) => p.url).map((p) => ({ params: { slug: p.url === '/' ? undefined : p.url.slice(1) }, props: { page: p } }));
+}
+
+interface Props { page: Page }
+const { page } = Astro.props;
+
+// Service pages describe what they offer; child pages carry their breadcrumb trail.
+const SERVICES: Record<string, { name: string; price?: string }> = {
+  '/audit': { name: 'The AI audit', price: '750' },
+  '/services/training': { name: 'Workshops & team training' },
+  '/services/custom-builds': { name: 'Custom skills & builds' },
+};
+const jsonLd: object[] = [];
+const service = SERVICES[page.url];
+if (service) {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    description: plain(page.meta.description),
+    url: SITE_URL + page.url,
+    provider: { '@id': `${SITE_URL}/#business` },
+    areaServed: AREA_SERVED,
+    ...(service.price ? { offers: { '@type': 'Offer', price: service.price, priceCurrency: 'USD' } } : {}),
+  });
+}
+const parts = page.url.split('/').filter(Boolean);
+if (parts.length > 1) {
+  const trail = parts.map((_, i) => '/' + parts.slice(0, i + 1).join('/')).filter((u) => byUrl.has(u));
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{ url: '/', name: 'Home' }, ...trail.map((u) => ({ url: u, name: byUrl.get(u)!.title }))]
+      .map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: SITE_URL + (c.url === '/' ? '/' : c.url) })),
+  });
+}
+---
+<Layout page={page} jsonLd={jsonLd}>
+  <PageBody page={page} />
+</Layout>

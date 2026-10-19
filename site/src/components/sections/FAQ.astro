@@ -1,0 +1,18 @@
+---
+import { action, inline } from '../../lib/inline';
+import { icon } from '../../lib/icons';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const { s } = Astro.props;
+const more = s.fields['Link under the list'] && action(s.fields['Link under the list']);
+---
+<div class="th-faq">
+  {s.items.map((it, n) => (
+    <details open={n === 0}>
+      <summary><Fragment set:html={inline(it.title)} /><Fragment set:html={icon('chevron')} /></summary>
+      <div><p set:html={inline(`${it.rest} ${it.extra}`.trim())} /></div>
+    </details>
+  ))}
+</div>
+{more && <p class="th-after"><a href={more.href} set:html={inline(more.label)} /></p>}

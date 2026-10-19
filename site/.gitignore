@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.env
+.dev.vars
+# copied from the stages by scripts/sync.mjs on every dev/build run
+public/css/
+public/logo/
+public/favicon.svg
+public/favicon.ico
+public/favicon-*.png
+public/apple-touch-icon.png

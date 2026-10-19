@@ -1,0 +1,29 @@
+---
+// "SectionHeading + list / text" and the descriptive sections on /book and /book/thanks:
+// lists with bold leads, paragraphs, plain bullets, and the contact fields.
+import { action, inline } from '../../lib/inline';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const { s } = Astro.props;
+const f = s.fields;
+const lists = Object.entries(s.lists).filter(([k]) => k !== 'Included');
+const contact = (['Phone', 'Email', 'Based in'] as const).filter((k) => f[k]);
+const link = f['Link'] && action(f['Link']);
+const button = f['Button'] && action(f['Button']);
+---
+<div class="th-prose">
+  {lists.map(([key, items]) => key === 'Paragraphs'
+    ? items.map((x) => <p set:html={inline(x)} />)
+    : <ul class="th-list">{items.map((x) => <li set:html={inline(x)} />)}</ul>)}
+  {s.bullets.length > 0 && <ul class="th-list">{s.bullets.map((x) => <li set:html={inline(x)} />)}</ul>}
+  {s.text.map((t) => <p set:html={inline(t)} />)}
+  {f['Line'] && <p set:html={inline(f['Line'])} />}
+  {contact.length > 0 && (
+    <dl class="th-contact">
+      {contact.map((k) => <div><dt>{k}</dt><dd set:html={inline(f[k])} /></div>)}
+    </dl>
+  )}
+  {link && <p class="th-after"><a href={link.href} set:html={inline(link.label)} /></p>}
+  {button && <p class="th-after"><a class="th-btn th-btn--secondary" href={button.href} set:html={inline(button.label)} /></p>}
+</div>

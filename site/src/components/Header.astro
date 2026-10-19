@@ -1,0 +1,50 @@
+---
+import { NAV } from '../site.config';
+import { icon } from '../lib/icons';
+
+interface Props { url: string }
+const { url } = Astro.props;
+// The section a page belongs to: /industries/hvac marks "Who we help".
+const current = url ? '/' + url.split('/')[1] : '';
+---
+<header class="th-header">
+  <div class="th-container">
+    <div class="th-header__bar">
+      <a class="th-header__logo" href="/">
+        <picture>
+          <source srcset="/logo/technehora-lockup-horizontal-dark.svg" media="(prefers-color-scheme: dark)">
+          <img src="/logo/technehora-lockup-horizontal-light.svg" alt="Techne Hora, home" width="159" height="48">
+        </picture>
+      </a>
+      <nav class="th-header__nav" aria-label="Main">
+        <ul>{NAV.map((n) => <li><a href={n.href} aria-current={n.href === current ? 'page' : undefined}>{n.label}</a></li>)}</ul>
+      </nav>
+      <a class="th-header__cta th-btn th-btn--primary th-btn--sm" href="/book">Book a call</a>
+      <button class="th-header__menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="th-visually-hidden">Menu</span>
+        <Fragment set:html={icon('menu')} />
+      </button>
+    </div>
+    <div class="th-header__panel" id="site-menu" hidden>
+      <nav aria-label="Main, mobile">
+        <ul>{NAV.map((n) => <li><a href={n.href} aria-current={n.href === current ? 'page' : undefined}>{n.label}</a></li>)}</ul>
+      </nav>
+      <a class="th-btn th-btn--primary th-btn--block" href="/book">Book a free 20-minute call</a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var b = document.querySelector('.th-header__menu-btn');
+    var panel = document.getElementById('site-menu');
+    b.addEventListener('click', function () {
+      var open = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !panel.hidden) { panel.hidden = true; b.setAttribute('aria-expanded', 'false'); b.focus(); }
+    });
+  })();
+</script>

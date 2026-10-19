@@ -1,0 +1,27 @@
+---
+import { action, inline } from '../../lib/inline';
+import { icon } from '../../lib/icons';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const [header, ...rows] = Astro.props.s.tables[0];
+const keys = header.map((h) => h.toLowerCase());
+const cards = rows.map((r) => Object.fromEntries(keys.map((k, i) => [k, r[i] ?? ''])));
+---
+<div class="th-card-grid">
+  {cards.map((c) => {
+    const link = c.link ? action(c.link) : null;
+    // "Which one sounds like you?" cards list three problems split by " · ".
+    const problems = c.text.includes(' · ') ? c.text.split(' · ') : null;
+    return (
+      <article class="th-card">
+        <span class="th-card__icon" set:html={icon(c.icon.replace(/`/g, ''))} />
+        <h3 class="text-h3" set:html={inline(c.h3)} />
+        {problems
+          ? <ul class="th-card__list">{problems.map((p) => <li set:html={inline(p)} />)}</ul>
+          : <p set:html={inline(c.text)} />}
+        {link && <a class="th-card__link" href={link.href}><Fragment set:html={inline(link.label)} /><Fragment set:html={icon('arrow')} /></a>}
+      </article>
+    );
+  })}
+</div>

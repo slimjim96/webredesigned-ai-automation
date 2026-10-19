@@ -1,0 +1,63 @@
+---
+// A page's sections in order, each by the component its `##` heading names.
+// Content sections alternate plain and sunken backgrounds; heroes, CTA bands and breadcrumbs sit outside that rhythm.
+import Hero from './sections/Hero.astro';
+import CTABand from './sections/CTABand.astro';
+import Breadcrumbs from './sections/Breadcrumbs.astro';
+import SectionHead from './sections/SectionHead.astro';
+import ServiceCards from './sections/ServiceCards.astro';
+import Steps from './sections/Steps.astro';
+import FAQ from './sections/FAQ.astro';
+import PriceCard from './sections/PriceCard.astro';
+import RoadmapTable from './sections/RoadmapTable.astro';
+import ProblemList from './sections/ProblemList.astro';
+import Callout from './sections/Callout.astro';
+import BookingEmbed from './sections/BookingEmbed.astro';
+import ContactForm from './sections/ContactForm.astro';
+import Prose from './sections/Prose.astro';
+import { inline } from '../lib/inline';
+import type { Page, Section } from '../lib/content';
+
+interface Props { page: Page }
+const { page } = Astro.props;
+
+const outside = (s: Section) => /^(hero|ctaband|breadcrumbs)/i.test(s.kind);
+function kindOf(s: Section) {
+  const k = s.kind.toLowerCase();
+  if (k.includes('servicecard')) return 'cards';
+  if (k.includes('roadmaptable')) return 'roadmap';
+  for (const name of ['pricecard', 'steps', 'faq', 'problemlist', 'callout', 'bookingembed']) if (k.startsWith(name)) return name;
+  if (k.includes('form')) return 'form';
+  return 'prose';
+}
+// A descriptive section name ("What to expect", "Other ways to reach us") doubles as its heading.
+const HEADS = ['H1', 'H2', 'H1 (styled as H2)', 'SectionHeading H2'];
+const fallbackHead = (s: Section) =>
+  kindOf(s) === 'prose' && !s.kind.toLowerCase().startsWith('sectionheading') && !HEADS.some((h) => h in s.fields)
+    ? s.kind.replace(/\s*\(.*?\)/g, '') : undefined;
+
+let n = 0;
+const blocks = page.sections.map((s) => ({ s, kind: kindOf(s), sunken: outside(s) ? false : n++ % 2 === 1 }));
+---
+{blocks.map(({ s, kind, sunken }) => {
+  if (/^hero/i.test(s.kind)) return <Hero s={s} />;
+  if (/^ctaband/i.test(s.kind)) return <CTABand s={s} />;
+  if (/^breadcrumbs/i.test(s.kind)) return <Breadcrumbs s={s} page={page} />;
+  return (
+    <section class:list={['th-section', { 'th-section--sunken': sunken }]} data-kind={s.kind}>
+      <div class="th-container">
+        {kind === 'pricecard' && <PriceCard s={s} />}
+        {kind === 'callout' && <Callout s={s} />}
+        {kind === 'bookingembed' && <BookingEmbed s={s} />}
+        {!['pricecard', 'callout', 'bookingembed'].includes(kind) && <SectionHead fields={s.fields} fallback={fallbackHead(s)} />}
+        {kind === 'cards' && <ServiceCards s={s} />}
+        {kind === 'steps' && <Steps s={s} />}
+        {kind === 'faq' && <FAQ s={s} />}
+        {kind === 'roadmap' && <RoadmapTable s={s} />}
+        {kind === 'problemlist' && <ProblemList s={s} />}
+        {kind === 'form' && <>{s.fields['Line'] && <p class="th-form__line" set:html={inline(s.fields['Line'])} />}<ContactForm s={s} /></>}
+        {kind === 'prose' && <Prose s={s} />}
+      </div>
+    </section>
+  );
+})}

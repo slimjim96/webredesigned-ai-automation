@@ -1,0 +1,17 @@
+---
+import { action, inline } from '../../lib/inline';
+import type { Section } from '../../lib/content';
+
+interface Props { s: Section }
+const f = Astro.props.s.fields;
+const button = action(f['Button']);
+---
+<section class="th-cta-band">
+  <div class="th-container th-cta-band__inner">
+    <div>
+      <h2 class="text-h2" set:html={inline(f['H2'])} />
+      {f['Line'] && <p class="text-lede" set:html={inline(f['Line'])} />}
+    </div>
+    <a class="th-btn th-btn--primary" href={button.href} set:html={inline(button.label)} />
+  </div>
+</section>
