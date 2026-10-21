@@ -17,8 +17,10 @@ def svg(name):
     return open(path).read().strip()
 
 TILES = [  # file, stage, title, use
-    ('technehora-lockup-horizontal-light.svg', 'light', 'Horizontal lockup', 'Default: site header, invoices, email signature, van doors'),
-    ('technehora-lockup-horizontal-dark.svg', 'dark', 'Horizontal lockup, dark', 'Navy surfaces, dark footers'),
+    ('technehora-lockup-horizontal-light.svg', 'light', 'Horizontal lockup', 'Default at 60px tall and up: invoices, signage, van doors'),
+    ('technehora-lockup-horizontal-dark.svg', 'dark', 'Horizontal lockup, dark', 'Navy surfaces at 60px and up'),
+    ('technehora-lockup-horizontal-small-light.svg', 'light', 'Horizontal lockup, small', 'Under 60px: site header, email signature'),
+    ('technehora-lockup-horizontal-small-dark.svg', 'dark', 'Horizontal lockup, small, dark', 'Under 60px on navy: site footer, dark header'),
     ('technehora-lockup-stacked-light.svg', 'light', 'Stacked lockup', 'Shirts, signage, title slides, square avatars with name'),
     ('technehora-lockup-stacked-dark.svg', 'dark', 'Stacked lockup, dark', 'Navy shirts and signs'),
     ('technehora-wordmark-light.svg', 'light', 'Wordmark', 'Name only, where the mark is already nearby'),
@@ -40,7 +42,7 @@ SWATCHES = [
     ('#A63D2A', 'Brick', 'Primary button, links, hour hand', 'White on it 6.3:1'),
     ('#E07A5F', 'Ember', 'The rewind arc; accents on navy', 'Graphic only'),
     ('#4E7060', 'Sage', 'Secondary accent', '5.2:1 on paper'),
-    ('#5C6170', 'Graphite', 'Muted text, H·O·R·A', '5.8:1 on paper'),
+    ('#5C6170', 'Graphite', 'Muted text', '5.8:1 on paper'),
 ]
 
 def tile(name, stage, title, use):
@@ -127,13 +129,13 @@ footer{padding-block:24px 48px;border-top:1px solid var(--line);color:var(--mute
 
 <section><div class="wrap">
   <h2>Logo set</h2>
-  <p>A navy-rimmed clock at ten o’clock, the last two hours tinted: the hours given back. “Techne” is set in Plex Serif, with H·O·R·A under it in Plex Mono, spaced like hour marks the way a watch prints small text on its dial. The whole name stays readable, and Hora stays quiet.</p>
+  <p>A navy-rimmed clock at ten o’clock, the last two hours tinted: the hours given back. “Techne” is set in Plex Serif and stands on HORA, drawn by hand as Doric columns on a temple’s three steps: tapered fluted shafts, a scroll for the R’s bowl, a pediment for the A. Craft standing on the hour. The small lockup, for under 60px, drops the flutes and uses one step.</p>
   <div class="logos">{{tiles}}</div>
   <h3>Rules</h3>
   <ul class="rules">
-    <li><b>Minimum size:</b> lockups at least 48px / 16mm tall, so H·O·R·A reads. Smaller than that, use the mark alone; below 24px, the favicon.</li>
+    <li><b>Sizes:</b> full lockups from 60px / 20mm tall; the small lockup from 32px to 60px. Smaller than that, the mark alone; below 24px, the favicon.</li>
     <li><b>Clear space:</b> the rim’s width (about 14% of the mark’s height) on every side.</li>
-    <li><b>Don’t:</b> recolor or rotate the mark, set HORA heavier or in color, add the rewind arc to the static logo, or put the full-color mark on a busy photo.</li>
+    <li><b>Don’t:</b> recolor or rotate the mark, set HORA in color or in a font, use the fluted lockup under 60px, add the rewind arc to the static logo, or put the full-color mark on a busy photo.</li>
   </ul>
 </div></section>
 

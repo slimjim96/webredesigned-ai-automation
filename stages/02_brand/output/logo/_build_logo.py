@@ -1,8 +1,9 @@
 """Build the Techne Hora logo set: the C3 "dial label" design (owner's pick, 2026-10-18).
 
 The mark is a navy-rimmed clock at 10:00 with the last two hours tinted; the name is "Techne" in IBM Plex Serif
-with H·O·R·A set under it in Plex Mono, spaced like hour marks. The C1 rewind arrow is kept as a separate motion
-asset (`technehora-rewind*.svg`), never part of the logo itself.
+standing on HORA, drawn from scratch as Doric columns on a temple's three steps (round 3 "F", owner's pick
+2026-10-20). Small lockups (`-small`, for under 60px) drop the flutes, thicken the shafts and use one step.
+The C1 rewind arrow is kept as a separate motion asset (`technehora-rewind*.svg`), never part of the logo itself.
 
 Needs fontTools + brotli and the Plex woff2 files in stages/03_design-system/output/fonts/:
     python -m venv .venv && .venv/bin/pip install fonttools brotli
@@ -21,7 +22,6 @@ MONO = TTFont(os.path.join(FONTS, 'IBMPlexMono-500.woff2'))
 NAME, SLUG = 'Techne Hora', 'technehora'
 
 N, NL, P, B, E, BLUSH = '#1B2A4A', '#2B4374', '#FAF7F0', '#A63D2A', '#E07A5F', '#F3D3C8'
-G, GD = '#5C6170', '#B8BFCC'  # graphite for HORA: on light backgrounds, and its pair on navy
 
 
 # ---------------------------------------------------------------- geometry
@@ -61,16 +61,87 @@ def text(font, s, size, x, base, fill, track=0.0):
 
 def cap(font, size): return font['OS/2'].sCapHeight * size / font['head'].unitsPerEm
 
-def hora_label(x, base, width, size, fill):
-    """H · O · R · A in mono, spread to `width`, with round ticks between the letters like hour marks."""
-    advs = [text(MONO, ch, size, 0, 0, fill)[1] for ch in 'HORA']
-    step = (width - advs[-1]) / 3; capS = cap(MONO, size)
-    out = ''.join(text(MONO, ch, size, x + i * step, base, fill)[0] for i, ch in enumerate('HORA'))
-    for i in range(3):
-        mx = x + i * step + advs[i] + (step - advs[i]) / 2
-        out += f'<circle cx="{mx:.2f}" cy="{base - capS / 2:.2f}" r="{size * .07:.2f}" fill="{fill}"/>'
-    return out
 
+
+# ---------------------------------------------------------------- HORA: Doric columns, no font
+# Drawn in a 100-unit-tall box. Doric: tapered shafts with no bases, a cushion (echinus) under a square slab (abacus),
+# standing straight on the platform. FULL is fluted on three steps; SMALL is plain, heavier and on one step.
+FULL = dict(C=17, flute=2.2, steps=3, gap=.34)
+SMALL = dict(C=20, flute=0, steps=1, gap=.40)
+DH, ABA, ECH = 100, 5, 5
+
+def _r(x, y, w, h): return f'M{x:.2f} {y:.2f}h{w:.2f}v{h:.2f}h{-w:.2f}Z'
+def _poly(pts): return 'M' + 'L'.join(f'{x:.2f} {y:.2f}' for x, y in pts) + 'Z'
+
+def _shaft(xb, xt, y0, y1, wb, wt, flute):
+    """Tapered shaft: foot from xb, wb wide; top from xt, wt wide; split by one groove when flute > 0."""
+    if not flute: return _poly([(xt, y0), (xt + wt, y0), (xb + wb, y1), (xb, y1)])
+    hb, ht = (wb - flute) / 2, (wt - flute) / 2
+    return (_poly([(xt, y0), (xt + ht, y0), (xb + hb, y1), (xb, y1)])
+            + _poly([(xt + ht + flute, y0), (xt + wt, y0), (xb + wb, y1), (xb + hb + flute, y1)]))
+
+def _column(x, s):
+    C = s['C']; wt = C - 3; cx = x + C / 2; aw = wt + 9
+    cap = _r(cx - aw / 2, 0, aw, ABA) + _poly([(cx - aw / 2 + 1, ABA), (cx + aw / 2 - 1, ABA), (cx + wt / 2, ABA + ECH), (cx - wt / 2, ABA + ECH)])
+    return cap + _shaft(x, x + 1.5, ABA + ECH, DH, C, wt, s['flute'])
+
+def _H(s):
+    C = s['C']; W = 52 + (C - 17) * 1.5
+    return _column(0, s) + _column(W - C, s) + _r(C - 1, 46, W - 2 * C + 2, 9 + (C - 17) * .5), W
+
+def _O(s):
+    """A tall ring with straight sides; one evenodd path, so a flute is just another hole."""
+    C = s['C']; W = 48 + (C - 17) * 1.5; sw = C - 3; r = W / 2; ri = r - sw; tb = sw - 3
+    stad = lambda x0, y0, x1, y1, rr: (f'M{x0:.2f} {y0 + rr:.2f}A{rr:.2f} {rr:.2f} 0 0 1 {x1:.2f} {y0 + rr:.2f}'
+                                       f'V{y1 - rr:.2f}A{rr:.2f} {rr:.2f} 0 0 1 {x0:.2f} {y1 - rr:.2f}Z')
+    o = stad(0, 0, W, DH, r) + stad(sw, tb, W - sw, DH - tb, ri)
+    if s['flute']:
+        for gx in (sw / 2 - s['flute'] / 2, W - sw / 2 - s['flute'] / 2):
+            o += _r(gx, r, s['flute'], DH - 2 * r)
+    return o, W
+
+def _R(s):
+    """A column whose bowl is a single Ionic scroll (small: a plain bowl with an eye); a strut for the leg."""
+    C = s['C']; W = 52 + (C - 17) * 1.5; bw = 11 + (C - 17) * .6; r0 = 19; cx, cy = C + 13, r0 + bw / 2
+    if s['flute']:
+        n = 70; outer, inner = [], []
+        for i in range(n + 1):
+            t = i / n; a = math.radians(-90 + 360 * 1.08 * t); rr = r0 + (5 - r0) * t; ww = bw * (1 - .4 * t)
+            outer.append((cx + (rr + ww / 2) * math.cos(a), cy + (rr + ww / 2) * math.sin(a)))
+            inner.append((cx + (rr - ww / 2) * math.cos(a), cy + (rr - ww / 2) * math.sin(a)))
+        bowl = _poly(outer + inner[::-1])
+    else:
+        ro = r0 + bw / 2; ri = r0 - bw / 2
+        bowl = (f'M{cx:.2f} 0A{ro:.2f} {ro:.2f} 0 0 1 {cx:.2f} {2 * ro:.2f}H{C - 2:.2f}V{2 * ro - bw:.2f}H{cx:.2f}'
+                f'A{ri:.2f} {ri:.2f} 0 0 0 {cx:.2f} {bw:.2f}Z')
+    o = _column(0, s) + bowl + _r(C - 2, 0, cx - C + 2.5, bw)
+    o += _poly([(C - 1, 54), (C + 11, 54), (W, DH), (W - 13, DH)])
+    return o, W
+
+def _A(s):
+    """Two columns leaning into a pediment. Small: the pediment and its cornice are one solid piece."""
+    C = s['C']; W = 58 + (C - 17) * 1.5; peak, lean = 24, 12
+    if s['flute']:
+        o = _poly([(W / 2, 0), (W + 2, peak), (-2, peak)]) + _r(-2, peak + 1.8, W + 4, 4.5); y0 = peak + 8.1
+    else:
+        o = _poly([(W / 2, 0), (W + 2, peak), (W + 2, peak + 6), (-2, peak + 6), (-2, peak)]); y0 = peak + 6
+    o += _shaft(0, lean, y0, DH, C, C - 3, s['flute']) + _shaft(W - C, W - C + 3 - lean, y0, DH, C, C - 3, s['flute'])
+    o += _r(C + 1, 66, W - 2 * C - 2, 8 + (C - 17) * .5)
+    return o, W
+
+def hora(x, y, width, h, fill, s):
+    """H O R A centred over `width`, `h` tall, on the platform. Returns (svg, height including the steps)."""
+    k = h / DH; gap = h * s['gap']; gl = [f(s) for f in (_H, _O, _R, _A)]
+    rules = ['nonzero', 'evenodd', 'nonzero', 'nonzero']                        # only the O's counter and flutes are holes
+    total = sum(w for _, w in gl) * k + 3 * gap; left = x + (width - total) / 2; cx = left; out = ''
+    for (d, w), rule in zip(gl, rules):
+        out += f'<path transform="translate({cx:.2f} {y:.2f}) scale({k:.4f})" fill="{fill}" fill-rule="{rule}" d="{d}"/>'
+        cx += w * k + gap
+    st = h * (.07 if s['steps'] == 3 else .1); d = ''
+    for i in range(s['steps']):
+        ext = total * .04 + i * h * .1
+        d += _r(left - ext, y + h + i * st, total + 2 * ext, st - (.01 if s['steps'] > 1 else 0))
+    return out + f'<path fill="{fill}" d="{d}"/>', h + s['steps'] * st
 
 # ---------------------------------------------------------------- the mark
 def dial(cx, cy, R, uid, dark=False, soft=True, favicon=False, arrow=False):
@@ -110,34 +181,35 @@ def dial_mono(cx, cy, R, ink):
 # ---------------------------------------------------------------- lockups
 SIZE = 100  # Techne set at 100 units; everything else is proportional
 
-def name_block(x, top, ink, mute):
-    """Techne over H·O·R·A. Returns (svg, width, height)."""
-    capH = cap(SERIF, SIZE); small = SIZE * .34; capS = cap(MONO, small); lead = capH * .42
-    t, w = text(SERIF, 'Techne', SIZE, x, top + capH, ink, track=.01)
-    t += hora_label(x + 2, top + capH + lead + capS, w - 4, small, mute)
-    return t, w, capH + lead + capS
+def name_block(x, top, ink, s=FULL):
+    """Techne standing on HORA. Returns (svg, width, height)."""
+    capH = cap(SERIF, SIZE); gap = capH * .24
+    g = SERIF['glyf'][SERIF.getBestCmap()[ord('h')]]
+    asc = max(capH, g.yMax * SIZE / SERIF['head'].unitsPerEm)                    # the h rises above the caps
+    t, w = text(SERIF, 'Techne', SIZE, x, top + asc, ink, track=.01)
+    lab, hh = hora(x, top + asc + gap, w, capH, ink, s)
+    return t + lab, w, asc + gap + hh
 
-def horizontal(dark=False, pad=10):
-    ink, mute = (P, GD) if dark else (N, G)
-    _, _, block = name_block(0, 0, ink, mute)
-    R = block * .62; cx = cy = pad + R; x = cx + R + SIZE * .28
-    t, w, _ = name_block(x, cy - block / 2, ink, mute)
-    return x + w + pad, 2 * R + 2 * pad, dial(cx, cy, R, f'h{int(dark)}', dark) + t
+def horizontal(dark=False, pad=12, s=FULL):
+    ink = P if dark else N
+    _, _, block = name_block(0, 0, ink, s)
+    R = block * .56; cx = cy = pad + R; x = cx + R + SIZE * .3
+    t, w, _ = name_block(x, cy - block / 2, ink, s)
+    return x + w + pad, 2 * R + 2 * pad, dial(cx, cy, R, f'h{int(dark)}{s["steps"]}', dark, soft=s is FULL) + t
 
 def stacked(dark=False):
-    ink, mute = (P, GD) if dark else (N, G)
+    ink = P if dark else N
     size = 64; R = 70; scale = size / SIZE
-    _, w, block = name_block(0, 0, ink, mute)
+    t, w, block = name_block(0, 0, ink)
     W = max(w * scale, 2 * R) + 40
-    t, _, _ = name_block(0, 0, ink, mute)
-    top = 2 * R + 34
+    top = 2 * R + 30
     body = (dial(W / 2, R + 6, R, f's{int(dark)}', dark)
             + f'<g transform="translate({(W - w * scale) / 2:.2f} {top:.2f}) scale({scale:.4f})">{t}</g>')
     return W, top + block * scale + 14, body
 
 def wordmark(dark=False, pad=4):
-    ink, mute = (P, GD) if dark else (N, G)
-    t, w, block = name_block(pad, pad, ink, mute)
+    ink = P if dark else N
+    t, w, block = name_block(pad, pad, ink)
     return w + 2 * pad, block + 2 * pad, t
 
 
@@ -159,6 +231,7 @@ def write(name, w, h, body, label=NAME):
 def main():
     for theme, dark in (('light', False), ('dark', True)):
         write(f'{SLUG}-lockup-horizontal-{theme}.svg', *horizontal(dark))
+        write(f'{SLUG}-lockup-horizontal-small-{theme}.svg', *horizontal(dark, s=SMALL))
         write(f'{SLUG}-lockup-stacked-{theme}.svg', *stacked(dark))
         write(f'{SLUG}-wordmark-{theme}.svg', *wordmark(dark))
     write(f'{SLUG}-mark.svg', 64, 64, dial(32, 32, 30, 'm'), f'{NAME} mark')

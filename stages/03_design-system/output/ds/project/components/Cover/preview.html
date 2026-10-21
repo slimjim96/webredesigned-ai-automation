@@ -14,7 +14,7 @@
   <path class="accent" d="M590.0 168.0L610.0 193.0L626.0 168.0Z"/>
   <circle class="primary" cx="768" cy="168" r="12"/>
 </svg>
-<div class="words"><div class="name">Techne</div><div class="hora" aria-label="Hora">H<i></i>O<i></i>R<i></i>A</div><div class="tag">The craft of getting your hours back.</div></div>
+<div class="words"><img class="logo-on-light" src="/_blob/a7bec207cb284b2982985fbd93a67dcc" alt="Techne Hora" width="392"><img class="logo-on-dark" src="/_blob/5f9fa0ca23c5f9f65408279b2ec5f7f2" alt="Techne Hora" width="392"><div class="tag">The craft of getting your hours back.</div></div>
 </div>
 <style>
   .cover { position: relative; width: 960px; height: 336px; background: var(--bg); overflow: hidden; }
@@ -26,9 +26,8 @@
   .tick { rx: var(--radius-sm); }
   .accent { fill: var(--accent); }
   .arc { fill: none; stroke: var(--accent); stroke-width: 16; }
-  .words { position: absolute; left: 48px; bottom: 40px; max-width: 400px; }
-  .name { font-family: var(--font-serif); font-weight: 600; font-size: 112px; line-height: 0.95; letter-spacing: -0.015em; color: var(--ink); }
-  .hora { margin-top: 14px; display: flex; justify-content: space-between; align-items: center; width: 392px; padding-left: 4px; box-sizing: border-box; font-family: var(--font-mono); font-weight: 500; font-size: 30px; line-height: 1; color: var(--ink-muted); }
-  .hora i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .words { position: absolute; left: 48px; bottom: 32px; max-width: 400px; }
+  .words img { display: block; height: auto; }
+  .logo-on-dark { display: none; } [data-theme="dark"] .logo-on-light { display: none; } [data-theme="dark"] .logo-on-dark { display: block; }
   .tag { margin-top: 20px; font-family: var(--font-sans); font-size: 14px; color: var(--ink-muted); }
 </style>
