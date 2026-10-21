@@ -1,4 +1,4 @@
-# Handoff — 2026-10-18
+# Handoff — 2026-10-20
 
 Where the work stopped, so a fresh session can pick it up. Stage status always comes from the `status:` frontmatter in `stages/*/output/*.md`; this file only adds context. Delete it once it's out of date.
 
@@ -10,7 +10,8 @@ Where the work stopped, so a fresh session can pick it up. Stage status always c
 | 03_design-system | approved | Preview: https://claude.ai/artifact/TK9xxob6Pc3Wof2v6esks9 |
 | 04_sitemap | approved | Approved 2026-10-18: hubs earn their place, proof slots left out until real, only Rochester's area page at launch |
 | 05_content | approved | Owner answers in `output/index.md`. Phone is the placeholder (585) 555-0100 until launch |
-| 06_build | draft: site built | `site/` (Astro 7.3.5 → Cloudflare Pages). `stages/06_build/output/build-notes.md` lists the accounts and env vars launch needs (Cal.com, Resend, Turnstile, Web Analytics). Next: owner clicks through on phone and desktop |
+| 06_build | approved | Approved 2026-10-20 after the owner clicked through the preview (https://claude.ai/artifact/USHrT6yZZyS5DDKxhzby3k). `site/` is Astro 7.3.5 for Cloudflare Pages; `stages/06_build/output/build-notes.md` lists the accounts and env vars launch needs (Cal.com, Resend, Turnstile, Web Analytics) |
+| 07_launch | not started | No CONTEXT.md yet. Carries: the real phone number, `PRIVACY_UPDATED`, owner privacy review, CSP, Google Business Profile, 02's open owner checks |
 
 ## Decisions made this session
 - **Name:** Techne Hora, said **TEK-nee OR-ah** (soft, almost silent H). technehora.ai is registered.
