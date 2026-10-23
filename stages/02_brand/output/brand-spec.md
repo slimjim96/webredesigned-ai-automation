@@ -1,6 +1,6 @@
 ---
-status: draft
-updated: 2026-10-20
+status: approved
+updated: 2026-10-22
 ---
 
 # Brand spec: Techne Hora

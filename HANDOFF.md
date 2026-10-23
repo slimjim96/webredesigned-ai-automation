@@ -1,4 +1,4 @@
-# Handoff — 2026-10-20
+# Handoff — 2026-10-22
 
 Where the work stopped, so a fresh session can pick it up. Stage status always comes from the `status:` frontmatter in `stages/*/output/*.md`; this file only adds context. Delete it once it's out of date.
 
@@ -6,7 +6,7 @@ Where the work stopped, so a fresh session can pick it up. Stage status always c
 | Stage | Status | Notes |
 |---|---|---|
 | 01_positioning | approved | |
-| 02_brand | draft (reopened 2026-10-20) | HORA redrawn as Doric columns on three steps (round 3 "F", `logo/_explorations/hora-columns/`), plus `-small` lockups for under 60px. Set rebuilt; the 03 design system, the brand sheet, the site header/footer and the site preview already use it. Needs the owner's approval again. Owner checks still open and block `07_launch`: technehora.com redirect, tagline, social handles, USPTO search |
+| 02_brand | approved | Re-approved 2026-10-22: HORA redrawn as Doric columns on three steps (round 3 "F", `logo/_explorations/hora-columns/`), plus `-small` lockups for under 60px. Set rebuilt; the 03 design system, the brand sheet, the site header/footer and the site preview already use it. Owner checks still open and block `07_launch`: technehora.com redirect, tagline, social handles, USPTO search |
 | 03_design-system | approved | Preview: https://claude.ai/artifact/TK9xxob6Pc3Wof2v6esks9 |
 | 04_sitemap | approved | Approved 2026-10-18: hubs earn their place, proof slots left out until real, only Rochester's area page at launch |
 | 05_content | approved | Owner answers in `output/index.md`. Phone is the placeholder (585) 555-0100 until launch |
