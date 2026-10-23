@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 url: /
 title: Techne Hora · AI help for local businesses in Rochester, NY
 description: We find where your week loses hours, then train your team or build the tools to get them back. Start with a free 20-minute call.

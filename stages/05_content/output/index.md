@@ -1,5 +1,5 @@
 ---
-status: draft
+status: approved
 updated: 2026-10-22
 ---
 
@@ -13,7 +13,7 @@ Every page in the approved sitemap, its copy file, and its status. The stage is 
 
 | Page | URL | File | Status |
 |---|---|---|---|
-| Home | `/` | `pages/home.md` | draft (reopened 2026-10-22: tagline as the closing band heading) |
+| Home | `/` | `pages/home.md` | approved |
 | The AI audit | `/audit` | `pages/audit.md` | approved |
 | Training & builds | `/services` | `pages/services.md` | approved |
 | Workshops & team training | `/services/training` | `pages/services-training.md` | approved |
