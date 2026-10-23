@@ -6,7 +6,7 @@ Where the work stopped, so a fresh session can pick it up. Stage status always c
 | Stage | Status | Notes |
 |---|---|---|
 | 01_positioning | approved | |
-| 02_brand | **draft (reopened 2026-10-22): needs the owner's approval** | HORA redrawn as plain narrow, tall letters on a thin line (round 6 "N2": letters over the middle 80% of "Techne", line as wide as "Techne"; rounds 1–6 in `logo/_explorations/hora-columns/`). One lockup at every size: the `-small` lockups are retired. Set, brand spec and brand sheet rebuilt; the 03 design system, site header/footer and site preview already use it. Owner checks still open and block `07_launch`: technehora.com redirect, social handles, USPTO search (tagline confirmed 2026-10-22) |
+| 02_brand | approved | Re-approved 2026-10-22: HORA redrawn as plain narrow, tall letters on a thin line (round 6 "N2": letters over the middle 80% of "Techne", line as wide as "Techne"; rounds 1–6 in `logo/_explorations/hora-columns/`). One lockup at every size: the `-small` lockups are retired. Set, brand spec and brand sheet rebuilt; the 03 design system, site header/footer and site preview already use it. Owner checks still open and block `07_launch`: technehora.com redirect, social handles, USPTO search (tagline confirmed 2026-10-22) |
 | 03_design-system | approved | Preview: https://claude.ai/artifact/TK9xxob6Pc3Wof2v6esks9 |
 | 04_sitemap | approved | Approved 2026-10-18: hubs earn their place, proof slots left out until real, only Rochester's area page at launch |
 | 05_content | approved | Re-approved 2026-10-22 with the tagline as the home page's closing band heading. Owner answers in `output/index.md`. Phone is the placeholder (585) 555-0100 until launch |
@@ -20,7 +20,7 @@ Where the work stopped, so a fresh session can pick it up. Stage status always c
 - **Design system:** tokens are built by `03_design-system/output/_build_tokens.py`, which checks contrast. The 16 components are in `components.css`.
 
 ## Logo (C3 2026-10-18; HORA redrawn 2026-10-22)
-The owner picked **C3, "the dial label"**: a navy-rimmed clock at 10:00 with the last two hours tinted, "Techne" in Plex Serif, and HORA under it. HORA was Plex Mono, then drawn from scratch: Doric columns (rounds 1–4, "F" briefly approved), then plain narrow, tall letters on a thin line (round 6 "N2", built 2026-10-22, awaiting approval). The owner asked for letters that read at small sizes and aren't building-like. The ember rewind arrow (C1) is kept as a motion-only asset for the hero, loading states, and pitch slides.
+The owner picked **C3, "the dial label"**: a navy-rimmed clock at 10:00 with the last two hours tinted, "Techne" in Plex Serif, and HORA under it. HORA was Plex Mono, then drawn from scratch: Doric columns (rounds 1–4, "F" briefly approved), then plain narrow, tall letters on a thin line (round 6 "N2", approved 2026-10-22). The owner asked for letters that read at small sizes and aren't building-like. The ember rewind arrow (C1) is kept as a motion-only asset for the hero, loading states, and pitch slides.
 - Set built by `02_brand/output/logo/_build_logo.py` (SVGs) and `_render_png.py` (PNGs). The compact lockups were dropped, because the horizontal lockup already puts the name on two lines
 - `brand-spec.md` Logo section and the design system's Logos README / header height (now 48px) are updated
 - Rounds explored, for reference: `logo/_explorations/rewind/` (3D puzzle marks, rejected as too complex) and `logo/_explorations/plex-refined/` (C1–C3)
@@ -28,8 +28,7 @@ The owner picked **C3, "the dial label"**: a navy-rimmed clock at 10:00 with the
 - Design-system preview updated (Logos group, header, footer, hero, cover). The old Fraunces logo uploads are still in its asset store, unlisted. `logo-design-brief.md` (status: draft) is now moot
 
 ## Next session
-1. The owner reviews the N2 logo (brand sheet, site preview) and re-approves `02_brand/output/brand-spec.md`, or asks for changes.
-2. Then `07_launch`: the owner's blockers and accounts in `stages/07_launch/output/launch-checklist.md`.
+1. `07_launch`: the owner's blockers and accounts in `stages/07_launch/output/launch-checklist.md`.
 
 ## Git
 Everything is committed and pushed to main.
