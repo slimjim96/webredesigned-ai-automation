@@ -9,7 +9,7 @@ Where the work stopped, so a fresh session can pick it up. Stage status always c
 | 02_brand | approved | Re-approved 2026-10-22: HORA redrawn as Doric columns on three steps (round 3 "F", `logo/_explorations/hora-columns/`), plus `-small` lockups for under 60px. Set rebuilt; the 03 design system, the brand sheet, the site header/footer and the site preview already use it. Owner checks still open and block `07_launch`: technehora.com redirect, social handles (tagline confirmed 2026-10-22), USPTO search |
 | 03_design-system | approved | Preview: https://claude.ai/artifact/TK9xxob6Pc3Wof2v6esks9 |
 | 04_sitemap | approved | Approved 2026-10-18: hubs earn their place, proof slots left out until real, only Rochester's area page at launch |
-| 05_content | approved | Owner answers in `output/index.md`. Phone is the placeholder (585) 555-0100 until launch |
+| 05_content | draft (reopened 2026-10-22) | Home only: the closing band heading is now the tagline, "The craft of getting your hours back." (was "Get your hours back."); needs the owner's approval, and the site build refuses the page until then. Owner answers in `output/index.md`. Phone is the placeholder (585) 555-0100 until launch |
 | 06_build | approved | Approved 2026-10-20 after the owner clicked through the preview (https://claude.ai/artifact/USHrT6yZZyS5DDKxhzby3k). `site/` is Astro 7.3.5 for Cloudflare Pages; `stages/06_build/output/build-notes.md` lists the accounts and env vars launch needs (Cal.com, Resend, Turnstile, Web Analytics) |
 | 07_launch | draft: checklist written | `stages/07_launch/output/launch-checklist.md`; next is the owner's accounts and blockers. Carries: the real phone number, `PRIVACY_UPDATED`, owner privacy review, CSP, Google Business Profile, 02's open owner checks |
 

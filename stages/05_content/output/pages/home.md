@@ -1,5 +1,5 @@
 ---
-status: approved
+status: draft
 url: /
 title: Techne Hora · AI help for local businesses in Rochester, NY
 description: We find where your week loses hours, then train your team or build the tools to get them back. Start with a free 20-minute call.
@@ -72,6 +72,6 @@ search: AI consultant Rochester NY; AI help for small business Rochester
 - **Link under the list:** More questions → `/faq`
 
 ## CTABand
-- **H2:** Get your hours back.
+- **H2:** The craft of getting your hours back.
 - **Line:** Start with a free 20-minute call. You'll know by the end of it whether we can help.
 - **Button:** Book a free 20-minute call → `/book`
