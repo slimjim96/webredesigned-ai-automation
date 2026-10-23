@@ -75,8 +75,8 @@ IBM Plex in three cuts. It reads as engineered but warm, matching an owner who b
 
 ## Logo
 
-- The logo is the **dial label**: a navy-rimmed clock at ten o'clock with the last two hours tinted, then "Techne" in Plex Serif 600 standing on HORA, drawn as navy Doric columns on a temple's three steps. Files are in the **Logos** asset group; the source is `stages/02_brand/output/logo/`.
-- In the header and footer use `technehora-lockup-horizontal-small-light.svg` (`-small-dark` on `inverse` and in dark mode) at 48px tall. The full lockups are for 60px and up. Below 32px use the mark alone, and below 24px `favicon.svg`.
+- The logo is the **dial label**: a navy-rimmed clock at ten o'clock with the last two hours tinted, then "Techne" in Plex Serif 600 standing on HORA, drawn as narrow, tall navy capitals on one thin line. Files are in the **Logos** asset group; the source is `stages/02_brand/output/logo/`.
+- In the header and footer use `technehora-lockup-horizontal-light.svg` (`-dark` on `inverse` and in dark mode) at 48px tall. The lockups work from 32px up. Below 32px use the mark alone, and below 24px `favicon.svg`.
 - Clear space: the rim's width (about 14% of the mark's height) on every side.
 - The ember rewind arc is not part of the logo. It appears only in the hero art (`technehora-rewind.svg`) and loading states (`technehora-rewind-spinner.svg`).
 

@@ -35,50 +35,38 @@
         },
         "technehora-lockup-horizontal-light.svg": {
           "name": "technehora-lockup-horizontal-light.svg",
-          "blob": "ff30eb464e863c325ad2ae8a3fce4d0a",
-          "size": 12939,
+          "blob": "a0d6fb2016c0f296445bb2787ef5c499",
+          "size": 12151,
           "type": "image/svg+xml"
         },
         "technehora-lockup-horizontal-dark.svg": {
           "name": "technehora-lockup-horizontal-dark.svg",
-          "blob": "fd32d885c9c18af01dbfbda068bab407",
-          "size": 12939,
-          "type": "image/svg+xml"
-        },
-        "technehora-lockup-horizontal-small-light.svg": {
-          "name": "technehora-lockup-horizontal-small-light.svg",
-          "blob": "6da23080f70527c12c7edc40a37114da",
-          "size": 11002,
-          "type": "image/svg+xml"
-        },
-        "technehora-lockup-horizontal-small-dark.svg": {
-          "name": "technehora-lockup-horizontal-small-dark.svg",
-          "blob": "558a8b0633b0d88be286e7faef7f1fa7",
-          "size": 11002,
+          "blob": "b96b311517fcb717504a350c6eea6572",
+          "size": 12151,
           "type": "image/svg+xml"
         },
         "technehora-lockup-stacked-light.svg": {
           "name": "technehora-lockup-stacked-light.svg",
-          "blob": "67a549240584191e818e7c330eba84ea",
-          "size": 10674,
+          "blob": "26baae7e17a8104d5948aca2ac899286",
+          "size": 9891,
           "type": "image/svg+xml"
         },
         "technehora-lockup-stacked-dark.svg": {
           "name": "technehora-lockup-stacked-dark.svg",
-          "blob": "296fb8c40e9ae63fa214fd795f7751b9",
-          "size": 10674,
+          "blob": "5201d3b4b7d2bc43f5e4f622f4ebf137",
+          "size": 9891,
           "type": "image/svg+xml"
         },
         "technehora-wordmark-light.svg": {
           "name": "technehora-wordmark-light.svg",
-          "blob": "a7bec207cb284b2982985fbd93a67dcc",
-          "size": 9259,
+          "blob": "2d939a2b96687ac5fa599eb2cc4825e4",
+          "size": 8476,
           "type": "image/svg+xml"
         },
         "technehora-wordmark-dark.svg": {
           "name": "technehora-wordmark-dark.svg",
-          "blob": "5f9fa0ca23c5f9f65408279b2ec5f7f2",
-          "size": 9259,
+          "blob": "0f6f7dc244230b8c1fb22d6697fed877",
+          "size": 8476,
           "type": "image/svg+xml"
         },
         "technehora-rewind.svg": {
@@ -103,8 +91,6 @@
         "favicon.svg",
         "technehora-lockup-horizontal-light.svg",
         "technehora-lockup-horizontal-dark.svg",
-        "technehora-lockup-horizontal-small-light.svg",
-        "technehora-lockup-horizontal-small-dark.svg",
         "technehora-lockup-stacked-light.svg",
         "technehora-lockup-stacked-dark.svg",
         "technehora-wordmark-light.svg",
@@ -129,9 +115,9 @@
   ],
   "lastChange": {
     "by": "Claude",
-    "at": "2026-10-21T02:00:00Z",
+    "at": "2026-10-22T22:00:00Z",
     "via": "Claude Code",
-    "note": "Logo: HORA redrawn as Doric columns; small lockup in the header and footer"
+    "note": "Logo: HORA redrawn as narrow, tall letters on a line (N2); one lockup at every size, the small lockup retired"
   },
   "layout": "files",
   "libraries": [],

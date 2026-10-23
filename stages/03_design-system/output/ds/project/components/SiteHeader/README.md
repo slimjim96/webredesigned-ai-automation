@@ -9,7 +9,7 @@ The top bar on every page: the logo (links home), up to four nav links, and one 
 - Nav labels here are samples; the real list comes from `04_sitemap`.
 
 ## Provides
-`th-header` › `th-container` › `th-header__bar` with `th-header__logo`, `th-header__nav`, `th-header__cta`, `th-header__menu-btn`; then `th-header__panel`. The consumer supplies the logo (`technehora-lockup-horizontal-small-light.svg` at 48px tall, `-small-dark` in dark mode) and the links.
+`th-header` › `th-container` › `th-header__bar` with `th-header__logo`, `th-header__nav`, `th-header__cta`, `th-header__menu-btn`; then `th-header__panel`. The consumer supplies the logo (`technehora-lockup-horizontal-light.svg` at 48px tall, `-dark` in dark mode) and the links.
 
 ## Don't
 - Don't add a second button, a search box, or a phone number in the bar. The phone number lives in `CallBar` and the footer.

@@ -33,7 +33,7 @@ Button · Eyebrow and Tag · SiteHeader (with phone menu) · Hero · SectionHead
 These are the standard set for a small service site. 04_sitemap may ask for more, such as a vertical page's "problems we fix" list or a booking embed wrapper. Add them here when it does.
 
 ## Open items
-- The header and footer use `technehora-lockup-horizontal-small-light.svg` / `-small-dark.svg` at 48px tall (HORA redrawn as Doric columns 2026-10-20; the small lockup drops the flutes and two of the steps so it stays clean at that size)
+- The header and footer use `technehora-lockup-horizontal-light.svg` / `-dark.svg` at 48px tall (HORA redrawn 2026-10-22 as narrow, tall letters on a line; one lockup at every size)
 - TODO: the sample copy in previews (FAQ answers, audit lead time, refund wording) is layout text. Real copy is written in `05_content`
 - TODO: booking tool (Cal.com, Calendly, or a form) is chosen in `06_build`; FormField covers a plain form
 - Brand checks carried from 02 (`.com` redirect, tagline, handles, trademark search) still block `07_launch`

@@ -1,11 +1,11 @@
 ---
-status: approved
+status: draft
 updated: 2026-10-22
 ---
 
 # Brand spec: Techne Hora
 
-Palette, type, and voice from direction C; logo is the C3 "dial label" (picked 2026-10-18), with HORA redrawn as Doric columns (reopened 2026-10-20, round 3 "F"). Name chosen in round 5 (after Lake Effect, Millrace, Hourback, Mainspring, Kairos and others). Earlier directions and marks are archived in `logo/_explorations/` (reference only).
+Palette, type, and voice from direction C; logo is the C3 "dial label" (picked 2026-10-18), with HORA redrawn as narrow, tall letters on a line (reopened 2026-10-22, round 6 "N2"; the Doric "F" of 2026-10-20 is archived). Name chosen in round 5 (after Lake Effect, Millrace, Hourback, Mainspring, Kairos and others). Earlier directions and marks are archived in `logo/_explorations/` (reference only).
 
 ## Name and lines
 - **Name:** Techne Hora. Two words, both capitalized. Never "TechneHora", "Techne-Hora", or "Techne Hora AI" in the logo
@@ -22,14 +22,13 @@ Palette, type, and voice from direction C; logo is the C3 "dial label" (picked 2
 
 ## Logo
 **Mark:** a navy-rimmed clock at ten o'clock. The face sits just below the rim (one faint shadow, the only soft touch), and the last two hours, 10 to 12, are tinted: the hours given back.
-**Name:** "Techne" in IBM Plex Serif 600, standing on HORA. HORA is drawn from scratch, no font, as Doric columns in full navy: tapered shafts with one flute each and no bases, a cushion-and-slab capital on every upright, an R whose bowl is a single Ionic scroll, and an A of two columns leaning into a pediment. The letters stand on a temple's three steps, the base the name is built on. Craft (techne) standing on the hour (hora).
-**Small versions** (`-small`, under 60px tall): no flutes, heavier shafts, a plain round bowl on the R, a solid pediment on the A, and one step instead of three, so nothing fills in at header size.
+**Name:** "Techne" in IBM Plex Serif 600, standing on HORA. HORA is drawn from scratch, no font, in full navy: narrow, tall capitals of even strokes, each about half as wide as it is tall, spaced across the middle 80% of "Techne" so the gaps keep it readable when small. They stand on one thin line as wide as "Techne", the last of the temple steps: the base the name is built on. Craft (techne) standing on the hour (hora).
+**One drawing at every size:** there is no separate small lockup; the same files work from the 48px site header up.
 **Motion only:** the ember rewind arrow (round 5, C1) is not part of the logo. It appears where movement makes sense: the site hero, loading states, the first slide of a pitch.
 
 | File (`logo/`) | Use |
 |---|---|
-| `technehora-lockup-horizontal-light.svg` / `-dark.svg` | default at 60px tall and up: invoices, signage, van doors, title slides |
-| `technehora-lockup-horizontal-small-light.svg` / `-small-dark.svg` | under 60px: site header and footer, email signature, social banners at small sizes |
+| `technehora-lockup-horizontal-light.svg` / `-dark.svg` | the default: site header and footer, invoices, signage, van doors, title slides, email signature |
 | `technehora-lockup-stacked-light.svg` / `-dark.svg` | mark centered over the name: shirts, signage, title slides, square avatars with name |
 | `technehora-wordmark-light.svg` / `-dark.svg` | name only, where the mark already appears nearby |
 | `technehora-mark.svg` | the mark with its soft touch: social avatar, app icon, hero |
@@ -42,9 +41,9 @@ Palette, type, and voice from direction C; logo is the C3 "dial label" (picked 2
 
 - Every letter is outlined to paths, so no font needs to be installed
 - `_build_logo.py` regenerates every SVG; `_render_png.py` regenerates the PNGs. See their docstrings
-- **Sizes:** the full lockups from 60px / 20mm tall; the `-small` lockup from 32px to 60px (the site header uses it at 48px). Below 32px, use the mark alone; below 24px, use `favicon.svg`
+- **Sizes:** the lockups from 32px / 10mm tall (the site header uses the horizontal one at 48px). Below 32px, use the mark alone; below 24px, use `favicon.svg`
 - **Clear space:** keep the rim's width (about 14% of the mark's height) empty on all sides
-- **Don't:** recolor the mark, rotate it, set HORA in color or in a font, use the fluted full lockup under 60px, put the rewind arrow in the static logo, or put the full-color mark on busy photos (use mono-white on a dark scrim instead)
+- **Don't:** recolor the mark, rotate it, set HORA in color or in a font, respace HORA or shorten its line, put the rewind arrow in the static logo, or put the full-color mark on busy photos (use mono-white on a dark scrim instead)
 - Rounds explored before this pick are in `logo/_explorations/` (reference only)
 
 ## Color
