@@ -11,7 +11,7 @@ Palette, type, and voice from direction C; logo is the C3 "dial label" (picked 2
 - **Name:** Techne Hora. Two words, both capitalized. Never "TechneHora", "Techne-Hora", or "Techne Hora AI" in the logo
 - **Say it:** TEK-nee OR-ah, with a soft, almost silent H. The distinct sound is part of the brand. Use this one pronunciation in calls, videos, and voicemail. On the phone, spell it: "Techne, T-E-C-H-N-E, Hora"
 - **Meaning:** *techne* is Greek for craft or skill; *hora* is the hour
-- **Tagline:** "The craft of getting your hours back." TODO: owner confirms (alternates: "Skilled work. Hours back." / "Crafted for your hours.")
+- **Tagline:** "The craft of getting your hours back." Confirmed by the owner 2026-10-22 (alternates not used: "Skilled work. Hours back." / "Crafted for your hours.")
 - **Descriptor** (under the name on vans, cards, social bios): "AI help for local businesses"
 - **About-page line:** "Techne is the Greek word for craft; hora means the hour. We craft AI tools that give your hours back."
 - **Parent company:** may appear as "by Web Redesigned" on the About page and in the footer; not part of the logo
@@ -80,6 +80,6 @@ A straight-talking advisor. Plain words, short sentences, outcomes before tools 
 ## Owner checks (approved 2026-10-17 with these open; each must be done before `07_launch`)
 - [x] technehora.ai registered
 - TODO: technehora.com registered and redirecting
-- TODO: tagline confirmed
+- [x] tagline confirmed (2026-10-22, as written)
 - TODO: handles: LinkedIn, Google Business Profile, Facebook, Instagram (@technehora)
 - TODO: quick USPTO search for "Techne Hora" in classes 35 (consulting) and 41 (training)

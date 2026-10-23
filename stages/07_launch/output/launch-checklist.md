@@ -10,7 +10,7 @@ Each box says who does it. **You** = the owner (accounts, secrets, DNS, deploys,
 ## 1. Blockers carried in
 From 02_brand (open owner checks):
 - [ ] **You:** register technehora.com (the redirect itself is step 5)
-- [ ] **You:** confirm the tagline, "The craft of getting your hours back." (or pick an alternate in `02_brand/output/brand-spec.md`)
+- [x] **You:** confirm the tagline, "The craft of getting your hours back." (or pick an alternate in `02_brand/output/brand-spec.md`)
 - [ ] **You:** claim the @technehora handles: LinkedIn, Facebook, Instagram (Google Business Profile is step 6)
 - [ ] **You:** quick USPTO search for "Techne Hora" in classes 35 (consulting) and 41 (training); anything close → stop and reopen 02
 
@@ -72,4 +72,4 @@ From 05_content and 06_build:
 - [ ] The 03 header-button fix (build notes) next time 03 is reopened
 
 ## Checked
-Nothing yet.
+- 2026-10-22: tagline confirmed as written by the owner; recorded in `02_brand/output/brand-spec.md`
