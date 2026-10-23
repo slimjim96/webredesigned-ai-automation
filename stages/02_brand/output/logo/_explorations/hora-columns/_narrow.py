@@ -3,7 +3,8 @@ HORA drawn from scratch as plain, narrow, even strokes (letters about half as wi
 "Techne" so the gaps carry it at small sizes. No roofs or capitals; the column idea is reduced to a hint:
 L: plain strokes.
 M: L with short flat ends on the stems, top and bottom (a slab under and over each, like a column's foot and top).
-N: L on a thin line, the last of the temple step.
+N: L on a thin line, the last of the temple step. Owner picked N, closer together (2026-10-22):
+N1 from the T's stem to the end of "Techne"; N2 and N3 centred at 80% and 66% of its width.
     ~/.cache/th-logo-venv/bin/python _narrow.py
 """
 import math, os, sys
@@ -66,6 +67,7 @@ def A(s):
 def hora(x, y, width, h, fill, s):
     """HORA spread to `width` (the width of "Techne"), `h` tall. Returns (svg, height including the line)."""
     k = h / DH; gl = [f(s) for f in (H, O, R, A)]
+    x, width = span(x, width, s)
     letters = sum(w for _, w in gl) * k; gap = (width - letters) / 3; cx = x; out = ''
     for d, w in gl:
         out += f'<path transform="translate({cx:.2f} {y:.2f}) scale({k:.4f})" fill="{fill}" d="{d}"/>'
@@ -74,8 +76,19 @@ def hora(x, y, width, h, fill, s):
     lh = h * .09; g = h * .12
     return out + f'<path fill="{fill}" d="{rect(x - h * .08, y + h + g, width + h * .16, lh)}"/>', h + g + lh
 
+def span(x, width, s):
+    """Where HORA sits under "Techne" (width = Techne's advance): all of it, a centred share, or from the T's stem."""
+    sp = s.get('span', 1)
+    if sp == 'stem':
+        u = L.SIZE / L.SERIF['head'].unitsPerEm; e = L.SERIF.getBestCmap()[ord('e')]
+        left = x + 276 * u                                                     # the T's stem (its outline, in font units)
+        right = x + width - (L.SERIF['hmtx'][e][0] - L.SERIF['glyf'][e].xMax) * u
+        return left, right - left
+    return x + width * (1 - sp) / 2, width * sp
+
 L.hora = hora                                                                     # name_block() looks it up at call time
-VARIANTS = dict(L=dict(steps=0), M=dict(steps=0, slabs=True), N=dict(steps=0, line=True))
+VARIANTS = dict(L=dict(steps=0), M=dict(steps=0, slabs=True), N=dict(steps=0, line=True),
+                N1=dict(steps=0, line=True, span='stem'), N2=dict(steps=0, line=True, span=.8), N3=dict(steps=0, line=True, span=.66))
 
 def write(name, w, h, body):
     with open(os.path.join(HERE, name), 'w') as fh:
