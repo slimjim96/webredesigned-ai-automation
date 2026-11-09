@@ -6,7 +6,7 @@ Where the work stopped, so a fresh session can pick it up. Stage status always c
 | Stage | Status | Notes |
 |---|---|---|
 | 01_positioning | approved | |
-| 02_brand | approved | Re-approved 2026-10-22: HORA redrawn as plain narrow, tall letters on a thin line (round 6 "N2": letters over the middle 80% of "Techne", line as wide as "Techne"; rounds 1–6 in `logo/_explorations/hora-columns/`). One lockup at every size: the `-small` lockups are retired. Set, brand spec and brand sheet rebuilt; the 03 design system, site header/footer and site preview already use it. Owner checks still open and block `07_launch`: technehora.com redirect, social handles, USPTO search (tagline confirmed 2026-10-22) |
+| 02_brand | approved | Re-approved 2026-10-22: HORA redrawn as plain narrow, tall letters on a thin line (round 6 "N2": letters over the middle 80% of "Techne", line as wide as "Techne"; rounds 1–6 in `logo/_explorations/hora-columns/`). One lockup at every size: the `-small` lockups are retired. Set, brand spec and brand sheet rebuilt; the 03 design system, site header/footer and site preview already use it. Owner checks still open and block `07_launch`: technehora.com redirect, social handles (tagline confirmed 2026-10-22; USPTO search 2026-11-08, no results) |
 | 03_design-system | approved | Preview: https://claude.ai/artifact/TK9xxob6Pc3Wof2v6esks9 |
 | 04_sitemap | approved | Approved 2026-10-18: hubs earn their place, proof slots left out until real, only Rochester's area page at launch |
 | 05_content | approved | Re-approved 2026-10-22 with the tagline as the home page's closing band heading. Owner answers in `output/index.md`. Phone is the placeholder (585) 555-0100 until launch |

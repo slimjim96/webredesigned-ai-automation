@@ -12,7 +12,7 @@ From 02_brand (open owner checks):
 - [ ] **You:** register technehora.com (the redirect itself is step 5)
 - [x] **You:** confirm the tagline, "The craft of getting your hours back." (or pick an alternate in `02_brand/output/brand-spec.md`)
 - [ ] **You:** claim the @technehora handles: LinkedIn, Facebook, Instagram (Google Business Profile is step 6)
-- [ ] **You:** quick USPTO search for "Techne Hora" in classes 35 (consulting) and 41 (training); anything close → stop and reopen 02
+- [x] **You:** quick USPTO search for "Techne Hora" in classes 35 (consulting) and 41 (training); anything close → stop and reopen 02 · searched 2026-11-08: no results for "techne hora"
 
 From 05_content and 06_build:
 - [ ] **You:** read the privacy page (`/privacy`). It's a plain-language draft, not legal advice

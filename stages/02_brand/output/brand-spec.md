@@ -81,4 +81,4 @@ A straight-talking advisor. Plain words, short sentences, outcomes before tools 
 - TODO: technehora.com registered and redirecting
 - [x] tagline confirmed (2026-10-22, as written)
 - TODO: handles: LinkedIn, Google Business Profile, Facebook, Instagram (@technehora)
-- TODO: quick USPTO search for "Techne Hora" in classes 35 (consulting) and 41 (training)
+- [x] quick USPTO search for "Techne Hora" (2026-11-08: no results)
